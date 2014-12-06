@@ -1,0 +1,17 @@
+top-nav:
+- name: Bakir Immobilien
+  url: 'http://www.bakirimmobilien.de'
+- name: Bakir Distribution
+  url: 'http://www.bakir-office.de'
+- name: Bakir Brader
+  url: 'http://bakirbrader.de'
+
+menu:
+- name: Über uns
+  url: '/ueber/'
+- name: Immobilienangebote
+  url: '/immobilienangebote/'
+- name: Unsere Leistungen
+  url: '/leistungen/'
+- name: Karriere
+  url: '/karriere/'

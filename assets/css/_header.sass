@@ -1,0 +1,36 @@
+header
+	background: #fff
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
+	overflow: hidden
+	position: relative
+
+	img
+		display: table
+		margin: 30px auto
+
+	nav
+		display: table
+		margin: 0 auto 20px
+
+		a
+			color: $accent
+			line-height: 1
+			text-decoration: none
+			margin-right: 10px
+			font-size: 16px
+			padding: 10px
+			border-radius: 5px
+			transition: all .2s
+			&:last-child
+				margin-right: 0
+			&:hover, &.current
+				color: white
+				background: $accent
+
+
+	@media (min-width: 620px)
+		img
+			float: left
+		nav
+			margin-top: 65px
+			float: right
