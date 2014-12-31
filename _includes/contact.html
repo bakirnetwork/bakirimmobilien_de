@@ -1,15 +1,17 @@
-<div class="container contact">
+<form class="container contact ajax" action="/assets/php/contact.php" method="POST">
 	<div class="contact-info">
-		<div class="contact-name">
-			<label>Name</label>
-			<input>
-		</div>
-		<div class="contact-mail">
-			<label>Mail</label>
-			<input>
-		</div>
+		<fieldset class="contact-name">
+			<label for="name">Name</label>
+			<input id="name" name="name" type="text">
+		</fieldset>
+		<fieldset class="contact-mail">
+			<label for="mail">Mail</label>
+			<input id="mail" name="mail" type="mail">
+		</fieldset>
 	</div>
 
-	<label>Nachricht</label>
-	<textarea></textarea>
-</div>
+	<label for="message">Nachricht</label>
+	<textarea id="message" name="message"></textarea>
+	
+	<button type="submit">Absenden</button>
+</form>
