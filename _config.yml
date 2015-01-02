@@ -14,6 +14,12 @@ github_username:  bakirimmobilien
 markdown: kramdown
 relative_permalinks: false
 
+exclude:
+  - node_modules/
+  - package.json
+  - Gruntfile.js
+  - deploy_credentials.json
+
 sass:
   sass_dir: assets/css
   style: compressed

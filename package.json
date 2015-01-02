@@ -1,0 +1,15 @@
+{
+  "name": "bakirimmobilien_de",
+  "description": "Website for Bakir Immobilien",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bakirnetwork/bakirimmobilien_de.git"
+  },
+  "author": "@niklasravnsborg",
+  "homepage": "http://bakirimmobilien.de",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-ssh": "^0.12.0"
+  }
+}
