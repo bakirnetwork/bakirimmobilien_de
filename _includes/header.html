@@ -1,18 +1,10 @@
-<!--nav class="nav-global">
-	<div class="container">
-		{% for item in site.data.settings.top-nav %}
-			<a href="{{ item.url }}">{{ item.name }}</a>
-		{% endfor %}
-	</div>
-</nav-->
-
 <header>
 	<div class="container">
 		<a href="/"><img src="{{ site.logo-img }}" alt="BAKIR Immobilien"></a>
 		<nav>
 			{% for item in site.data.settings.menu %}
-		    	<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
-		    {% endfor %}
+				<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
+			{% endfor %}
 		</nav>
 	</div>
 </header>
