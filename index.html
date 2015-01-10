@@ -1,26 +1,20 @@
 ---
 layout: default
 ---
-
-<div class="about">
-	<div class="container">
-		<h2>Immobilien sind unsere Leidenschaft.</h2>
-		<p>Möchten Sie eine Immobilie erwerben oder veräußern? Wir stehen Ihnen dabei gerne zur Seite.</p>
-		<div class="row" style="width: 60%;">
-			<div class="col span-6"><a class="btn btn--white" href="/immobilienangebote/" onclick="_gaq.push(['_trackEvent', 'Kaufen / Verkaufen', 'Kaufen und Mieten', 'CTA /'])">Kaufen / Mieten</a></div>
-			<div class="col span-6"><a class="btn btn--white" href="/kontakt/" onclick="_gaq.push(['_trackEvent', 'Kaufen / Verkaufen', 'Anbieten', 'CTA /'])">Anbieten</a></div>
+<div class="wrapper">
+	<section class="marketing hero">
+		<div class="container">
+			<h2>Immobilien sind unsere Leidenschaft.</h2>
+			<p>Möchten Sie eine Immobilie erwerben oder veräußern? Wir stehen Ihnen dabei gerne zur Seite.</p>
+			<div class="row" style="width: 60%;">
+				<div class="col span-6"><a class="btn btn--white" href="/immobilienangebote/" onclick="_gaq.push(['_trackEvent', 'Kaufen / Verkaufen', 'Kaufen und Mieten', 'CTA /'])">Kaufen / Mieten</a></div>
+				<div class="col span-6"><a class="btn btn--white" href="/kontakt/" onclick="_gaq.push(['_trackEvent', 'Kaufen / Verkaufen', 'Anbieten', 'CTA /'])">Anbieten</a></div>
+			</div>
 		</div>
-	</div>
-</div>
+	</section>
 
-<div class="intro">
-	<div class="container">
-		<img class="intro__bakir-schwestern" src="/assets/img/bakir-schwestern@2x.jpg" alt="Die Bakir Schwestern">
-		<h2>Die Bakir Schwestern</h2>
-		<p class="intro__blurb">Bakir Immobilien ist ein seit über 20 Jahren geführtes Familienunternehmen. Wir sind die drei Bakir Schwestern: Filiz, Nurhayat und Jacqueline.</p>
-	</div>
+	<section class="marketing intro">{% include intro.html %}</section>
+	<section class="marketing info">{% include info.html %}</section>
+	<section class="marketing immobilienangebote">{% include immobilienangebote.html %}</section>
+	<section class="marketing contact">{% include contact.html %}</section>
 </div>
-
-{% include info.html %}
-{% include immobilien-section.html %}
-{% include contact.html %}
