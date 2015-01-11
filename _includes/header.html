@@ -1,10 +1,12 @@
 <header>
 	<div class="container">
-		<a href="/"><img src="{{ site.logo-img }}" alt="BAKIR Immobilien"></a>
-		<nav>
-			{% for item in site.data.settings.menu %}
-				<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
-			{% endfor %}
-		</nav>
+		<div class="col span-12">
+			<a href="/"><img src="{{ site.logo-img }}" alt="BAKIR Immobilien"></a>
+			<nav>
+				{% for item in site.data.settings.menu %}
+					<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
+				{% endfor %}
+			</nav>
+		</div>
 	</div>
 </header>
