@@ -4,18 +4,18 @@ $('form.ajax').on('submit', function() {
 	    method = that.attr('method'),
 	    status = that.find('.status'),
 	    data   = {};
-	
+
 	that.find('[name]').each(function(index, value) {
 		var that = $(this),
 		    name = that.attr('name'),
 		    value = that.val();
-		
+
 		data[name] = value;
 	});
-	
+
 	$.ajax({
 		url: url,
-		type: method, 
+		type: method,
 		data: data,
 		success: function(response) {
 			if (response == 1) {
@@ -28,6 +28,6 @@ $('form.ajax').on('submit', function() {
 			}
 		}
 	});
-	
+
 	return false;
 });
