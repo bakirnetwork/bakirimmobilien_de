@@ -12,9 +12,14 @@ exclude:
   - package.json
   - Gruntfile.js
   - deploy_credentials.json
+  - Gemfile
+  - Gemfile.lock
 
 sass:
   sass_dir: assets/css
   style: compressed
 
 logo-img: "/assets/img/bakirimmobilien_logo.svg"
+
+gems:
+  - octopress-autoprefixer
