@@ -14,6 +14,16 @@ $('form.ajax').on('submit', function() {
 	});
 
 	$.ajax({
+		xhr: function() {
+			var xhr = new window.XMLHttpRequest();
+			xhr.upload.addEventListener("progress", function(evt) {
+				if (evt.lengthComputable) {
+					var percentComplete = evt.loaded / evt.total;
+					status.text(Math.round(percentComplete * 100) + '%');
+				}
+			}, false);
+			return xhr;
+		},
 		url: url,
 		type: method,
 		data: data,
