@@ -5,7 +5,7 @@ permalink: /verwaltung/
 ---
 
 **Paketlösungen**  
-Bei uns haben Sie als Eigentümer die Möglichkeit, sich ein Verwaltungskonzept aus mehreren Pakten zusammenzustellen. Wir sind so in der Lage den Anforderungen jedes Eigentümers und jeder Eigentümerversammlung gerecht zu werden.
+Bei uns haben Sie als Eigentümer die Möglichkeit, sich ein Verwaltungskonzept aus mehreren Paketen zusammenzustellen. Wir sind so in der Lage den Anforderungen jedes Eigentümers und jeder Eigentümerversammlung gerecht zu werden.
 
 **Mietverwaltung**  
 Wir übernehmen für Sie die kaufmännische Betreuung Ihrer Objekte, dazu gehören selbstverständlich die technische Betreuung, das Vermietungsmanagement, das Ertragsmanagement und das Konzeptmanagement.
