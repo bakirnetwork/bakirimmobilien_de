@@ -1,7 +1,7 @@
-<header class="main-header">
+<header class="main-header {% if page.url == '/index.html' %}main-header--hero{% endif %}">
 	<div class="row">
 		<div class="col span-12">
-			<a href="/"><img src="{{ site.logo-img }}" alt="BAKIR Immobilien"></a>
+			<a href="/"><img src="/assets/img/bakirimmobilien_logo_white.svg" alt="BAKIR Immobilien"></a>
 			<nav>
 				{% for item in site.data.settings.menu %}
 					<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
@@ -9,4 +9,7 @@
 			</nav>
 		</div>
 	</div>
+	{% if page.url == '/index.html' %}
+		{% include hero.html %}
+	{% endif %}
 </header>
