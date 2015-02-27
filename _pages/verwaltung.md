@@ -1,5 +1,5 @@
 ---
-layout: site
+layout: page
 title: Verwaltung
 permalink: /verwaltung/
 ---

@@ -1,5 +1,5 @@
 ---
-layout: site
+layout: page
 title: Unsere Leistungen
 permalink: /leistungen/
 ---

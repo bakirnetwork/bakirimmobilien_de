@@ -7,6 +7,8 @@ url: "http://www.bakirimmobilien.de"
 markdown: kramdown
 relative_permalinks: false
 
+include: ['_pages']
+
 exclude:
   - node_modules/
   - package.json
