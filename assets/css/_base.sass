@@ -29,13 +29,34 @@ label
 	display: block
 	margin-bottom: 5px
 
-input, textarea
-	width: 100%
+input,
+textarea,
+button
 	padding: 15px
-	border: none
-	background: #e5e5e5
+	border: 2px solid $grey
 	border-radius: 2px
+
+	line-height: 1
+
+	background: $white2
 	outline: none
+	transition: all .4s
+
+input,
+textarea
+	width: 100%
+	line-height: 1.5
+	&:focus
+		border-color: $accent
+
+button
+	padding: 15px 30px
+	margin: 20px 0
+
+	&:hover
+		background: $accent
+		color: white
+		border-color: darken($accent, 15%)
 
 textarea
 	height: 200px
