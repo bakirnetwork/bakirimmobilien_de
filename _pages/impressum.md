@@ -33,7 +33,7 @@ Telefon: 0049 (0) 4461 744617
 
 **Vertreten durch**  
 Jacqueline Bakir Brader  
-E-Mail: <{{ site.email }}>{:target="_blank"}
+E-Mail: [{{ site.email }}](mailto:{{ site.email }}){:target="_blank"}
 
 Homepage: [www.bakirimmobilien.de](http://www.bakirimmobilien.de)
 
