@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col span-12">
-		<form class="ajax" action="/assets/php/contact.php" method="POST">
+		<form class="contact ajax" action="/assets/php/contact.php" method="POST">
 			<div class="contact-info">
 				<fieldset class="contact-name">
 					<label for="name">Name</label>
@@ -12,13 +12,14 @@
 				</fieldset>
 			</div>
 
-			<label for="message">Nachricht</label>
-			<textarea id="message" name="message"></textarea>
+			<fieldset class="contact-message">
+				<label for="message">Nachricht</label>
+				<textarea id="message" name="message"></textarea>
+			</fieldset>
 
-			<button type="submit">Absenden</button>
+			<button class="contact-submit" type="submit">Absenden</button>
 
 			<span class="status"></span>
 		</form>
 	</div>
 </div>
-
