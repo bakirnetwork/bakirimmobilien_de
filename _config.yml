@@ -1,8 +1,4 @@
-title: Bakir Immobilien
-email: '&#105;&#110;&#102;&#111;&#064;&#098;&#097;&#107;&#105;&#114;&#105;&#109;&#109;&#111;&#098;&#105;&#108;&#105;&#101;&#110;&#046;&#100;&#101;'
-description: Bakir Immobilien ist ein Familienunternehmen mit über 20 Jahren Erfahrung in der Immobilien Wirtschaft. Wir beraten Sie mit Leidenschaft um auf individuelle Bedürfnisse einzugehen.
 baseurl: ""
-url: "http://www.bakirimmobilien.de"
 
 markdown: kramdown
 relative_permalinks: false
@@ -20,8 +16,6 @@ exclude:
 sass:
   sass_dir: assets/css
   style: compressed
-
-logo-img: "/assets/img/bakirimmobilien_logo.svg"
 
 gems:
   - octopress-autoprefixer
