@@ -1,25 +1,21 @@
-<div class="row">
-	<div class="col span-12">
-		<form class="contact ajax" action="/assets/php/contact.php" method="POST">
-			<div class="contact-info">
-				<fieldset class="contact-name">
-					<label for="name">Name</label>
-					<input id="name" name="name" type="text">
-				</fieldset>
-				<fieldset class="contact-mail">
-					<label for="mail">Mail</label>
-					<input id="mail" name="mail" type="text">
-				</fieldset>
-			</div>
-
-			<fieldset class="contact-message">
-				<label for="message">Nachricht</label>
-				<textarea id="message" name="message"></textarea>
-			</fieldset>
-
-			<button class="contact-submit" type="submit">Absenden</button>
-
-			<span class="status"></span>
-		</form>
+<form class="contact ajax" action="/assets/php/contact.php" method="POST">
+	<div class="contact-info">
+		<fieldset class="contact-name">
+			<label for="name">Name</label>
+			<input id="name" name="name" type="text">
+		</fieldset>
+		<fieldset class="contact-mail">
+			<label for="mail">Mail</label>
+			<input id="mail" name="mail" type="text">
+		</fieldset>
 	</div>
-</div>
+
+	<fieldset class="contact-message">
+		<label for="message">Nachricht</label>
+		<textarea id="message" name="message"></textarea>
+	</fieldset>
+
+	<button class="contact-submit" type="submit">Absenden</button>
+
+	<span class="status"></span>
+</form>
