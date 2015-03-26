@@ -1,3 +1,7 @@
+// ------------------- //
+// Lato                //
+// ------------------- //
+
 @font-face {
 	font-family: "Lato";
 	font-style: normal;
@@ -29,4 +33,30 @@
 	     url("../fonts/lato/lato-black.woff") format("woff"),
 	     url("../fonts/lato/lato-black.ttf") format("truetype"),
 	     url("../fonts/lato/lato-black.svg#webfont") format("svg");
+}
+
+// ------------------- //
+// Merriweather        //
+// ------------------- //
+
+@font-face {
+	font-family: "Merriweather";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/merriweather/merriweather-regular.eot");
+	src: url("../fonts/merriweather/merriweather-regular.eot?#iefix") format("embedded-opentype"),
+	     url("../fonts/merriweather/merriweather-regular.woff") format("woff"),
+	     url("../fonts/merriweather/merriweather-regular.ttf") format("truetype"),
+	     url("../fonts/merriweather/merriweather-regular.svg#webfont") format("svg");
+}
+
+@font-face {
+	font-family: "Merriweather";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../fonts/merriweather/merriweather-bold.eot");
+	src: url("../fonts/merriweather/merriweather-bold.eot?#iefix") format("embedded-opentype"),
+	     url("../fonts/merriweather/merriweather-bold.woff") format("woff"),
+	     url("../fonts/merriweather/merriweather-bold.ttf") format("truetype"),
+	     url("../fonts/merriweather/merriweather-bold.svg#webfont") format("svg");
 }
