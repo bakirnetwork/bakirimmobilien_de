@@ -18,32 +18,10 @@ $white2: #efefef
 
 	*zoom: 1
 
-@import normalize
-@import fonts
-@import base
-@import grid
-@import header
-@import contact
-@import modules
-
-.btn
-	display: block
-	margin: 0 auto
-	padding: 20px 30px
-	max-width: 350px
-
-	color: $dark
-	font-size: 18px
-	text-align: center
-	text-decoration: none
-
-	background: none
-	border: 3px solid $dark
-	cursor: pointer
-
-	&:hover
-		background: rgba(255, 255, 255, 0.2)
-
-	&--white
-		border-color: white
-		color: white
+@import base/normalize
+@import base/font
+@import base/base
+@import modules/grid
+@import modules/header
+@import modules/contact
+@import modules/modules
