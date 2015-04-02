@@ -1,43 +1,47 @@
 .main-header
 	position: relative
-	
 	background: $accent
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
-	
-	overflow: hidden
 
-	img
+	&--hero
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		background: none
+
+	&__logo
 		display: table
 		margin: 30px auto
 
-	nav
+		@media (min-width: 620px)
+			float: left
+
+	&__nav
 		display: table
 		margin: 0 auto 20px
+
+		@media (min-width: 620px)
+			margin-top: 65px
+			float: right
+
 		a
-			color: white
-			line-height: 1
-			text-decoration: none
-			margin-right: 10px
-			font-size: 16px
 			padding: 10px
+			margin-right: 10px
+
+			color: white
+			font-weight: 600
+			font-size: 16px
+			text-decoration: none
+			text-transform: uppercase
+			line-height: 1
+			letter-spacing: 1px
+
 			border-radius: 5px
 			transition: all .2s
+
 			&:last-child
 				margin-right: 0
+
 			&:hover, &.current
 				color: white
 				background: rgba(black, .2)
-			
-	&--hero
-		min-height: 600px
-		height: 100vh
-		background: url('../img/hero_kaffeeherz.min.jpg')
-		background-size: cover
-		
-	@media (min-width: 620px)
-		img
-			float: left
-
-		nav
-			margin-top: 65px
-			float: right

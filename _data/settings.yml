@@ -6,9 +6,9 @@ url: "http://www.bakirimmobilien.de"
 menu:
 - name: Über uns
   url: '/ueber/'
-- name: Immobilienangebote
+- name: Immobilien
   url: '/immobilienangebote/'
-- name: Unsere Leistungen
+- name: Leistungen
   url: '/leistungen/'
 - name: Karriere
   url: '/karriere/'
