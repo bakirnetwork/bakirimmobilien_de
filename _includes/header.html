@@ -1,11 +1,13 @@
 <header class="main-header {% if page.url == '/' %}main-header--hero{% endif %}">
 	<div class="row">
-		<a href="/"><img class="main-header__logo" src="/assets/img/bakirimmobilien_logo_white.svg" alt="Bakir Immobilien"></a>
-		<nav class="main-header__nav">
-			{% for item in site.data.settings.menu %}
-				<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
-			{% endfor %}
-		</nav>
+		<div class="col span-12">
+			<a href="/"><img class="main-header__logo" src="/assets/img/bakirimmobilien_logo_white.svg" alt="Bakir Immobilien"></a>
+			<nav class="main-header__nav">
+				{% for item in site.data.settings.menu %}
+					<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
+				{% endfor %}
+			</nav>
+		</div>
 	</div>
 </header>
 
