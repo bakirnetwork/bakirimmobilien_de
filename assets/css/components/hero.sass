@@ -7,9 +7,14 @@
 	color: white
 	text-align: center
 
-	background: url('../img/hero_kaffeeherz.min.jpg')
-	background-size: cover
-	background-position: center -40px
+	background:
+		color: #426286
+		image: url('../img/hero.jpg')
+		size: cover
+		position: center bottom
+
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+		background-image: url('../img/hero@2x.jpg')
 
 	&__content
 		position: relative
