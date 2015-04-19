@@ -3,7 +3,9 @@ baseurl: ""
 markdown: kramdown
 relative_permalinks: false
 
-include: ['_pages']
+include:
+  - _pages
+  - .htaccess
 
 exclude:
   - node_modules/

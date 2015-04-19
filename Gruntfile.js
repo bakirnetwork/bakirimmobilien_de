@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		sftp: {
 			deploy: {
 				files: {
-					'./': '_site/**'
+					'./': ['_site/**', '_site/.htaccess']
 				},
 				options: {
 					path: '/bakirimmobilien_neu/',
