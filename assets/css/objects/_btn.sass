@@ -4,18 +4,35 @@
 	padding: 20px 30px
 	max-width: 350px
 
-	color: $dark
 	font-size: 18px
-	text-align: center
+	font-weight: 800
+	font-size: 15px
 	text-decoration: none
+	text-transform: uppercase
+	text-align: center
+	letter-spacing: 2px
 
 	background: none
-	border: 3px solid $dark
+	transition: all .2s
 	cursor: pointer
 
-	&:hover
-		background: rgba(255, 255, 255, 0.2)
+	&--dark
+		border: 3px solid $dark
+		color: $dark
+
+		&:hover
+			background: rgba(white, 0.2)
 
 	&--white
-		border-color: white
+		border: 3px solid white
 		color: white
+
+	&--solid
+		border-bottom: 3px solid #CA3568
+		border-radius: 5px
+		color: #fff
+		text-shadow: 0 -1px #CA3568
+		background: #F96396
+
+		&:hover
+			background: lighten(#F96396, 3%)
