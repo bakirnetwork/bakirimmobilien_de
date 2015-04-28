@@ -51,11 +51,13 @@ textarea
 
 button
 	padding: 15px 30px
+	color: white
+	background: $accent
+	border-color: darken($accent, 15%)
 
 	&:hover
-		background: $accent
-		color: white
-		border-color: darken($accent, 15%)
+		background: lighten($accent, 6%)
+		border-color: $accent
 
 textarea
 	height: 200px
