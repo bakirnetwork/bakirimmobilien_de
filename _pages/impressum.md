@@ -35,7 +35,8 @@ Telefon: 0049 (0) 4461 744617
 Jacqueline Bakir Brader  
 E-Mail: <a href="mailto:{{ site.data.settings.email }}" target="blank">{{ site.data.settings.email }}</a>
 
-Homepage: [www.bakirimmobilien.de](http://www.bakirimmobilien.de)
+Homepage: [www.bakirimmobilien.de](http://www.bakirimmobilien.de)  
+Webdesign und Umsetzung: [Niklas Ravnsborg-Gjertsen](http://www.niklasravnsborg.com)
 
 **Registereintrag**  
 Eintragung im Handelsregister  
