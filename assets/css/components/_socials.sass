@@ -1,0 +1,49 @@
+.socials
+	+cf
+
+	a
+		float: left
+		padding: 15px 0
+
+		color: white
+		font-weight: 700
+		text-align: center
+		text-decoration: none
+		letter-spacing: 1px
+
+		background: rgba(white, .3)
+		border-radius: 2px
+		transition: all .2s
+
+		&:hover
+			text-decoration: none
+
+		&:last-child
+			margin: 0
+
+		@media (max-width: 399px)
+			width: 100%
+			margin-bottom: 20px
+
+		@media (min-width: 400px) and (max-width: 679px)
+			width: 47.5%
+			margin-bottom: 5%
+
+			&:nth-child(odd)
+				margin-right: 5%
+
+			&:nth-last-child(2)
+				margin-bottom: 0
+
+		@media (min-width: 680px)
+			width: 23%
+			margin-right: 2%
+
+
+
+	$social-colors: ("facebook": #3b5999, "twitter": #55acee, "googleplus": #dd4b39, "youtube": #cd201f)
+
+	@each $network, $color in $social-colors
+		&__#{$network}:hover
+			color: lighten($color, 8%)
+			background: white
