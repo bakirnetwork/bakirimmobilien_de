@@ -10,6 +10,15 @@
 		<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.data.settings.url }}">
 	</head>
 	<body>
+		<!--[if lt IE 10]>
+			<article class="browserupgrade">
+				<div class="row">
+					<div class="col span-12">
+						<p>Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href="http://outdatedbrowser.com/de">aktualisieren Sie ihren Browser</a> um das Internet-Erlebnis zu verbessern.</p>
+					</div>
+				</div>
+			</article>
+		<![endif]-->
 
 		{% include header.html %}
 
