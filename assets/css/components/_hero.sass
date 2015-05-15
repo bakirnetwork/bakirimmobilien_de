@@ -18,15 +18,25 @@
 
 	&__content
 		position: relative
-		top: 50%
+		top: 60%
 		transform: translateY(-50%)
+		@media(min-width: 768px)
+			top: 50%
 
 	&__subtitle
 		margin-bottom: 40px
+		@media(max-width: 767px)
+			display: none
 
 	&__epic-text
-		font-size: 3em
+		font-size: 2.2em
 		font-weight: 800
 		font-variant: small-caps
 		text-shadow: 0 3px 0 rgba(0, 0, 0, 0.3)
 		letter-spacing: 3px
+		@media(min-width: 600px)
+			font-size: 3em
+
+	@media(max-width: 767px)
+		.col
+			margin-bottom: 20px
