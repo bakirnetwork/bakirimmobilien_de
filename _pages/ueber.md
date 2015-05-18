@@ -15,7 +15,7 @@ Hochqualifizierte Mitarbeiter zeichnen unser Unternehmen aus und werden kontinui
 
 **Tradition, Innovation und Emotion!**  
 Zwanzig Jahre sind eine lange Zeit, aber drei Schwestern sind eine starke Truppe. Unser Ziel ist es innovativ zu vermarkten, Ihre Immobilie durch moderne und neu geschaffene Konzepte zu vermitteln. Die Zukunft heißt Objekt-Tracking.  
-Der Auftraggeber kann jederzeit in einem passwortgeschützten Bereich unserer Homepage alle Aktivitäten "seines Objektes" einsehen. Hiermit hat der Auftraggeber die Möglichkeit, sich just in time via Internet über den Vermarktungsstand seiner Immobilien zu informieren.  
+Der Auftraggeber kann jederzeit in einem passwortgeschützten Bereich unserer Homepage alle Aktivitäten „seines Objektes“ einsehen. Hiermit hat der Auftraggeber die Möglichkeit, sich just in time via Internet über den Vermarktungsstand seiner Immobilien zu informieren.  
 Mein Team und ich freuen uns auf Ihren Besuch!  
 Sie finden uns im Robert-Koch-Haus, Virchowstraße 17 in Wilhelmshaven  
 
