@@ -12,24 +12,23 @@ Angaben gemäß § 5 TMG
 Bakir Immobilien GmbH  
 Rondeel 9  
 22301 Hamburg  
-Telefon: 0049 (0) 40 63779808  
-Fax: 0049 (0) 4421 994777
+Telefon: [0049 (0) 40 63779808](tel:+494063779808)
 
 **Filiale Oldenburg**  
 Bloherfelder Straße 130  
 26129 Oldenburg  
-Telefon: 0049 (0) 441 36162630
+Telefon: [0049 (0) 441 36162630](tel:+4944136162630)
 
 **Filiale Wilhelmshaven**  
 Virchowstraße 17  
 Im Robert-Koch-Haus  
 26382 Wilhelmshaven  
-Telefon: 0049 (0) 4421 994770
+Telefon: [0049 (0) 4421 994770](tel:+494421994770)
 
 **Filiale Jever**  
 Sillensteder Straße 4A  
 26441 Jever  
-Telefon: 0049 (0) 4461 744617
+Telefon: [0049 (0) 4461 744617](tel:+494461744617)
 
 **Vertreten durch**  
 Jacqueline Bakir Brader  
