@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule   ^onoffice(/?.+)$     render_onoffice.php?url=$1     [NC,QSA]
