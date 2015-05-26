@@ -12,14 +12,15 @@ module.exports = function(grunt) {
 
 		sftp: {
 			deploy: {
-				files: {
-					'./': ['_site/**', '_site/.htaccess']
-				},
+				files: [
+					{
+						src: ['_site/**/*', '!_site/**/.DS_Store'],
+						dot: true
+					}
+				],
 				options: {
-					path: '/bakirimmobilien_neu/',
-
 					srcBasePath: '_site/',
-
+					path: '/bakirimmobilien_neu/',
 					showProgress: true,
 					createDirectories: true
 				}
