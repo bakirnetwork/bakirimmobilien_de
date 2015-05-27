@@ -10,6 +10,8 @@
   "homepage": "http://bakirimmobilien.de",
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-exec": "^0.4.6",
     "grunt-ssh": "^0.12.0"
   }
 }

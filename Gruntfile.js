@@ -10,6 +10,17 @@ module.exports = function(grunt) {
 			}
 		},
 
+		clean: {
+			build: {
+				src: '_site/'
+			}
+		},
+
+		exec: {
+			jekyllServe: { cmd: 'bundle exec jekyll s' },
+			jekyllBuild: { cmd: 'bundle exec jekyll b' }
+		},
+
 		sftp: {
 			deploy: {
 				files: [
@@ -38,7 +49,12 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-ssh');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-exec');
+
 	grunt.option('config', 'production');
-	grunt.registerTask('deploy', ['sftp:deploy', 'sshexec:moveToNew']);
+
+	grunt.registerTask('default', ['clean', 'exec:jekyllServe']);
+	grunt.registerTask('deploy', ['clean', 'exec:jekyllBuild', 'sftp:deploy', 'sshexec:moveToNew']);
 	grunt.registerTask('backup', ['sshexec:backup']);
 }
