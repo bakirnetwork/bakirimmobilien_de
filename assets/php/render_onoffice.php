@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: text/html; charset=utf-8');
+
 function append_params($array, $parent='') {
 	$params = array();
 	foreach ($array as $k => $v)
