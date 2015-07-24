@@ -4,11 +4,11 @@ description: Bakir Immobilien ist ein Familienunternehmen mit über 20 Jahren Er
 url: "http://www.bakirimmobilien.de"
 
 menu:
-- name: Über uns
-  url: '/ueber/'
 - name: Immobilien
   url: '/immobilienangebote/'
+- name: Office Center
+  url: '/officecenter/'
 - name: Leistungen
   url: '/leistungen/'
-- name: Karriere
-  url: '/karriere/'
+- name: Über uns
+  url: '/ueber/'
