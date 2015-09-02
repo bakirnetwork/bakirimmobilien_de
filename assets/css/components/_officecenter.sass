@@ -51,6 +51,14 @@ $bdi-light: desaturate(lighten($bdi, 15%), 45%)
 			&:last-child
 				border-bottom: 0
 
+@media(max-width: 767px)
+	.pricing > .col
+		> .box
+			margin-bottom: 40px
+		&:last-child
+			> .box
+				margin-bottom: 0
+
 .price-contact
 	+cf
 
