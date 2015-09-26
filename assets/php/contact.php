@@ -10,6 +10,10 @@ if (empty($name) || empty($mail) || empty($message)) {
 	return 0;
 }
 
+if (isset($_POST['meta'])) {
+	$message = $_POST['meta'] . "\n" . $message;
+}
+
 $subject = "Nachricht von $name ($mail) auf www.bakirimmobilien.de";
 echo sendMail('info@bakirimmobilien.de', $message, $subject, $mail, 'Bakir Immobilien', $name);
 

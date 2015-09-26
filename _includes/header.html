@@ -1,4 +1,4 @@
-<header class="main-header {% if page.url == '/' %}main-header--hero{% endif %}">
+<header class="main-header {% if page.url == '/index.php' %}main-header--hero{% endif %}">
 	<div class="row">
 		<div class="col span-12">
 			<a href="/"><img class="main-header__logo" src="/assets/img/bakirimmobilien_logo_white.svg" alt="Bakir Immobilien"></a>
@@ -11,6 +11,6 @@
 	</div>
 </header>
 
-{% if page.url == '/' %}
+{% if page.url == '/index.php' %}
 	{% include hero.html %}
 {% endif %}

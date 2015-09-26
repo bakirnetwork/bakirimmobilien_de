@@ -1,4 +1,14 @@
-<p>Sie möchten eine Immobilie veräußern oder brauchen weitere Informationen? Nehmen Sie Kontakt zu uns auf über dieses Formular oder schreiben Sie eine Mail an <a href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>.</p>
+<?php
+	if (isset($_GET['meta'])) {
+		$meta = htmlspecialchars($_GET['meta']);
+	}
+?>
+
+<?php if (isset($meta)): ?>
+	<h2><?php echo $meta; ?></h2>
+<?php else: ?>
+	<p>Sie möchten eine Immobilie veräußern oder brauchen weitere Informationen? Nehmen Sie Kontakt zu uns auf über dieses Formular oder schreiben Sie eine Mail an <a href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>.</p>
+<?php endif ?>
 
 <form class="contact ajax" action="/assets/php/contact.php" method="POST">
 	<div class="contact-info">
@@ -16,6 +26,10 @@
 		<label for="message">Nachricht</label>
 		<textarea id="message" name="message"></textarea>
 	</fieldset>
+
+	<?php if (isset($meta)): ?>
+		<input type="hidden" name="meta" value="<?php echo $meta; ?>">
+	<?php endif ?>
 
 	<button class="contact-submit" type="submit">Absenden</button>
 

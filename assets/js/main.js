@@ -29,7 +29,7 @@ $('form.ajax').on('submit', function() {
 		data: data,
 		success: function(response) {
 			if (response == 1) {
-				that.find('[name]').each(function(index, value) {
+				that.find('[name]').not('[type="hidden"]').each(function(index, value) {
 					$(this).val('');
 				});
 				status.text('Ihre Nachricht wurde erfolgreich versendet.');
