@@ -28,7 +28,7 @@ Telefon: [0049 (0) 4421 994770](tel:+494421994770)
 **Filiale Jever**  
 Sillensteder Straße 4A  
 26441 Jever  
-Telefon: [0049 (0) 4461 744617](tel:+494461744617)
+Telefon: [0049 (0) 4461 9160437](tel:+4944619160437)
 
 Geschäftsführung: Jacqueline Bakir Brader  
 E-Mail: <a href="mailto:{{ site.data.settings.email }}" target="blank">{{ site.data.settings.email }}</a>  
