@@ -4,6 +4,12 @@ title: Branding Assets
 permalink: /brand/
 ---
 
+## Typografie
+
+Als Schriftart wird eine Kombination aus Lato und Merriweather verwendet.  
+<a href="https://www.google.com/fonts/specimen/Lato" target="blank">Lato (für Überschriften und Aufhänger)</a>  
+<a href="https://www.google.com/fonts/specimen/Merriweather" target="blank">Merriweather (für Fließtexte)</a>
+
 ## Verwendung
 
 Das Branding System darf nicht abgeändert werden. Das Logo darf nicht abgeschnitten sein und muss klar sichtbar platziert werden.
