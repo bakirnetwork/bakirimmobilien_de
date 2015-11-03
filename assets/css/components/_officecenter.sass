@@ -19,74 +19,15 @@ $bdi-light: desaturate(lighten($bdi, 15%), 45%)
 
 		background: $bdi-light
 
-.box
-	background: $white1
-	border-radius: 3px
-	box-shadow: 0 1px 2px rgba(black, .15)
-	overflow: hidden
+	.box
+		&__title
+			background: $bdi
 
-	&__title
-		padding: 20px
-		margin: 0
+	.price-contact
+		border-top: 4px solid $bdi
 
-		text-transform: uppercase
-		letter-spacing: 1px
+		&__contact
+			background: $bdi
 
-		color: white
-		background: $bdi
-
-	&__content
-		ul
-			padding: 0
-			margin: 0
-			list-style: none
-
-		li
-			margin: 0
-			padding: 20px
-			border-bottom: 1px solid $grey
-
-			color: $dark
-			background: white
-
-			&:last-child
-				border-bottom: 0
-
-	sup a
-		text-decoration: none
-
-@media(max-width: 767px)
-	.pricing > .col
-		> .box
-			margin-bottom: 40px
-		&:last-child
-			> .box
-				margin-bottom: 0
-
-.price-contact
-	+cf
-
-	border-top: 4px solid $bdi
-
-	&__price
-		float: left
-		width: 60%
-		padding: 20px
-
-		text-align: center
-		.small
-			font-size: .7em
-			opacity: .6
-
-	&__contact
-		float: right
-		padding: 20px 0
-		width: 40%
-
-		text-align: center
-		text-decoration: none
-		color: white
-		background: $bdi
-		transition: background .4s
-		&:hover
-			background: $bdi-light
+			&:hover
+				background: $bdi-light

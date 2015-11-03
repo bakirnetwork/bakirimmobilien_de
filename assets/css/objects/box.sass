@@ -1,0 +1,76 @@
+.box
+	background: $white1
+	border-radius: 3px
+	box-shadow: 0 1px 2px rgba(black, .15)
+	overflow: hidden
+	font-family: Lato, sans-serif
+
+	&__title
+		padding: 20px
+		margin: 0
+
+		text-transform: uppercase
+		letter-spacing: 1px
+
+		color: white !important
+		background: $accent
+
+	&__content
+		ul
+			padding: 0
+			margin: 0
+			list-style: none
+
+		li
+			margin: 0
+			padding: 20px
+			border-bottom: 1px solid $grey
+
+			color: $dark
+			background: white
+
+			&:last-child
+				border-bottom: 0
+
+		&--striped
+			li:nth-child(even)
+				background: #f7f9fa
+
+	sup a
+		text-decoration: none
+
+@media(max-width: 767px)
+	.pricing > .col
+		> .box
+			margin-bottom: 40px
+		&:last-child
+			> .box
+				margin-bottom: 0
+
+.price-contact
+	+cf
+
+	border-top: 4px solid $accent
+
+	&__price
+		float: left
+		width: 60%
+		padding: 20px
+
+		text-align: center
+		.small
+			font-size: .7em
+			opacity: .6
+
+	&__contact
+		float: right
+		padding: 20px 0
+		width: 40%
+
+		text-align: center
+		text-decoration: none
+		color: white
+		background: $accent
+		transition: background .4s
+		&:hover
+			background: desaturate(lighten($accent, 15%), 45%)
