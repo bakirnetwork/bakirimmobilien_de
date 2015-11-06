@@ -13,7 +13,21 @@
 		path
 			fill: white
 
-	@media(max-width: 767px)
+
+	@media (min-width: 490px) and (max-width: 767px)
+		.row
+			width: 90%
+
+		.col
+			margin-bottom: 3em
+			&:last-child
+				margin-bottom: 0
+
+		&__icon
+			float: left
+			margin-right: 3em
+
+	@media (max-width: 489px)
 		text-align: center
 
 		.row
