@@ -1,5 +1,5 @@
 .row {
-	width: 100%;
+	width: 95%;
 	max-width: 900px;
 	margin: 0 auto;
 
@@ -20,7 +20,7 @@
 	padding: 0 20px;
 }
 
-@media ( min-width : 768px ) {
+@media ( min-width : 800px ) {
 	.span-1  { width: 8.33333333333%; }
 	.span-2  { width: 16.6666666667%; }
 	.span-3  { width: 25%; }
