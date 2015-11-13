@@ -152,12 +152,6 @@ $modules: () !default;
 // Grid Functions
 //
 
-// Deprecated: We'll drop support for this in 5.1, use grid-calc()
-@function gridCalc($colNumber, $totalColumns) {
-  @warn "gridCalc() is deprecated, use grid-calc()";
-  @return grid-calc($colNumber, $totalColumns);
-}
-
 // @FUNCTION
 // $colNumber - Found in settings file
 // $totalColumns - Found in settings file
