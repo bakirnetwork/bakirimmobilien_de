@@ -5,13 +5,14 @@
 	&__thumb
 		float: left
 		margin-right: 20px
+	&__info
+		h2
+			margin-bottom: 0
 	&__options
-		position: absolute
-		left: 20px
-		right: 20px
-		bottom: 20px
+		margin-top: 6px
+		> *
+			float: right
 	&__button
-		float: right
 		display: inline-block
 		padding: 10px 20px
 		border: none !important
@@ -20,6 +21,8 @@
 		text-decoration: none
 		background: $accent
 		border-radius: 3px
+		&:hover
+			background: lighten($accent, 6%)
 
 .immobilienangebote
 	@media(max-width: 799px)
