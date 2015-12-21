@@ -5,7 +5,7 @@ url: "http://www.bakirimmobilien.de"
 
 menu:
 - name: Immobilien
-  url: '/immobilienangebote/'
+  url: 'http://angebote.bakirimmobilien.de'
 - name: Office Center
   url: '/officecenter/'
 - name: Leistungen

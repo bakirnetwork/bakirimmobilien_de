@@ -12,7 +12,7 @@
 </IfModule>
 
 Redirect /index.php/ueber-uns http://www.bakirimmobilien.de/ueber
-Redirect /index.php/immobilienangebote http://www.bakirimmobilien.de/immobilienangebote
+Redirect /index.php/immobilienangebote http://angebote.bakirimmobilien.de
 Redirect /index.php/unsere-leistungen http://www.bakirimmobilien.de/leistungen
 Redirect /index.php/karriere http://www.bakirimmobilien.de/karriere
 Redirect /index.php/verwaltung http://www.bakirimmobilien.de/verwaltung
@@ -20,3 +20,5 @@ Redirect /index.php/wertermittlung http://www.bakirimmobilien.de/wertermittlung
 Redirect /index.php/finanzierung http://www.bakirimmobilien.de/finanzierung
 Redirect /index.php/impressum http://www.bakirimmobilien.de/impressum
 Redirect /index.php/kontaktformular http://www.bakirimmobilien.de/kontakt
+
+Redirect /immobilienangebote http://angebote.bakirimmobilien.de
