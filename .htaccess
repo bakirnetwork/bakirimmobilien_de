@@ -11,6 +11,8 @@
 	AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
 </IfModule>
 
+ErrorDocument 404 /404.html
+
 Redirect /index.php/ueber-uns http://www.bakirimmobilien.de/ueber
 Redirect /index.php/immobilienangebote http://angebote.bakirimmobilien.de
 Redirect /index.php/unsere-leistungen http://www.bakirimmobilien.de/leistungen
