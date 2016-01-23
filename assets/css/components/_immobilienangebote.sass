@@ -1,34 +1,32 @@
 .immobilie
-	position: relative
-	padding: 20px
-	margin-bottom: 20px
+	margin-bottom: 40px
 	&__thumb
-		float: left
-		margin-right: 20px
+		width: 100%
 	&__info
+		padding: 20px
 		h2
-			margin-bottom: 0
+			margin-bottom: 5px
 	&__options
-		margin-top: 6px
-		> *
-			float: right
+		+cf
 	&__button
-		display: inline-block
-		padding: 10px 20px
+		float: left
+		width: 50%
+		padding: 18px 0
 		border: none !important
-		margin-left: 10px
 		color: white
-		text-decoration: none
+		text-align: center
 		background: $accent
-		border-radius: 3px
+		transition: background .4s !important
 		&:hover
 			background: lighten($accent, 6%)
+		&:nth-child(1)
+			border-right: 2px solid lighten($accent, 10%) !important
 
 .immobilienangebote
-	@media(max-width: 799px)
-		text-align: center
 	&__search
 		margin-bottom: 2em
+	&__angebote-liste .column:nth-child(3n+1)
+		clear: left
 
 .immobilien
 	margin-bottom: 60px
