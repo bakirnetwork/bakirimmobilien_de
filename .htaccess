@@ -11,6 +11,11 @@
 	AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
 </IfModule>
 
+# Make Font Loading available
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
+
 ErrorDocument 404 /404.html
 
 Redirect /index.php/ueber-uns http://www.bakirimmobilien.de/ueber
