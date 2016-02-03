@@ -1,9 +1,24 @@
+.immobilienangebote__angebote-liste
+	> .column
+		padding: 15px
+
+	@media(min-width: 642px)
+		display: flex
+		flex-wrap: wrap
+
+		> .column
+			display: flex
+			width: 33.33%
+
 .immobilie
-	margin-bottom: 40px
-	&__thumb
+	display: flex
+	flex-direction: column
+	&__thumb img
 		width: 100%
+		vertical-align: middle
 	&__info
 		padding: 20px
+		flex-grow: 1
 		h2
 			margin-bottom: 5px
 	&__options
