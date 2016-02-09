@@ -32,7 +32,8 @@ Telefon: [0049 (0) 4461 9160437](tel:+4944619160437)
 
 Geschäftsführung: Jacqueline Bakir Brader  
 E-Mail: <a href="mailto:{{ site.data.settings.email }}" target="blank">{{ site.data.settings.email }}</a>  
-Homepage: [www.bakirimmobilien.de](http://www.bakirimmobilien.de)
+Homepage: [www.bakirimmobilien.de](http://www.bakirimmobilien.de)  
+Mitglied im [Immobilienverband IVD](http://www.ivd.net)
 
 Webdesign und Umsetzung: [Niklas Ravnsborg-Gjertsen](http://www.niklasravnsborg.com)
 
