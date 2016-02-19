@@ -13,12 +13,18 @@
 .immobilie
 	display: flex
 	flex-direction: column
+	a
+		display: flex
+		flex-direction: column
+		flex-grow: 1
+		border: none
+		&:hover
+			border: none
 	&__thumb img
 		width: 100%
 		vertical-align: middle
 	&__info
 		padding: 20px
-		flex-grow: 1
 		h2
 			margin-bottom: 5px
 	&__options
