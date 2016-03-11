@@ -10,5 +10,5 @@ menu:
   url: '/officecenter/'
 - name: Leistungen
   url: '/leistungen/'
-- name: Über uns
-  url: '/ueber/'
+- name: Blog
+  url: 'http://bakirimmobilien.tumblr.com'
