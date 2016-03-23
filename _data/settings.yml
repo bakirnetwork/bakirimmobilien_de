@@ -5,10 +5,12 @@ url: "http://www.bakirimmobilien.de"
 
 menu:
 - name: Immobilien
-  url: 'http://angebote.bakirimmobilien.de'
+  url: '/immobilienangebote/'
 - name: Office Center
   url: '/officecenter/'
 - name: Leistungen
   url: '/leistungen/'
 - name: Blog
   url: 'http://bakirimmobilien.tumblr.com'
+
+immoapi: https://beta.exposify.de/api/beta/bakirimmobilien

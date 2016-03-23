@@ -1,0 +1,61 @@
+---
+layout: default
+title: Immobilienangebote
+permalink: /immobilienangebote/angebot.php
+---
+
+<?php
+
+$property_slug = $_GET['slug'];
+
+$api_json = file_get_contents('{{ site.data.settings.immoapi }}/' . $property_slug);
+$property = json_decode($api_json, true);
+
+?>
+
+<main>
+	<div class="page-header">
+		<div class="row">
+			<div class="column">
+				<h1><?php echo($property['name']); ?></h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-content immobilie-page">
+		<div class="row immobilie-page__fields">
+			<div class="column">
+				<h2>Details</h2>
+			</div>
+			<div class="medium-6 column">
+				<strong>Typ:</strong>
+				<?php echo( $property['type'] ); ?>
+			</div>
+			<?php foreach ($property['fields'] as $field_name => $field): ?>
+				<?php if ($field['type'] != 'textarea'): ?>
+					<div class="medium-6 column">
+						<strong><?php echo( $field_name ); ?>:</strong>
+						<?php echo( $field['value'] ); ?>
+						<?php if ($field['type'] == 'price'): ?>€<?php endif; ?>
+						<?php if ($field['type'] == 'area'): ?>m<sup>2</sup><?php endif; ?>
+					</div>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</div>
+		<div class="row immobilie-page__texts">
+			<?php foreach ($property['fields'] as $field_name => $field): ?>
+				<?php if ($field['type'] == 'textarea'): ?>
+					<div class="column">
+						<h2><?php echo($field_name); ?></h2>
+						<p><?php echo(nl2br(htmlentities($field['value'], ENT_COMPAT, 'UTF-8'))); ?></p>
+					</div>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</div>
+		<div class="row">
+			<div class="column">
+				<img class="immobilie__thumb" src="<?php echo($property['thumbnail']); ?>">
+			</div>
+		</div>
+	</div>
+</main>

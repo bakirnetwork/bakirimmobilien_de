@@ -1,10 +1,70 @@
 ---
-layout: page
+layout: default
 title: Immobilienangebote
-permalink: /immobilienangebote/
+permalink: /immobilienangebote/index.php
 ---
 
+<?php
 
-<iframe id="immobilienangebote" src="/assets/php/onoffice/" frameborder="0" width="100%" style="height: 3000px;"></iframe>
-<script src="/assets/js/vendor/iframeResizer.min.js"></script>
-<script>iFrameResize();</script>
+$search_query = '';
+if (isset($_GET['search'])) {
+	$search_query = $_GET['search'];
+}
+
+$api_json = file_get_contents('{{ site.data.settings.immoapi }}?query=' . $search_query);
+$api_array = json_decode($api_json, true);
+
+$properties = $api_array['properties'];
+
+?>
+
+<main>
+	<div class="page-header page-header--center">
+		<div class="row">
+			<div class="column">
+				<h1>Immobilienangebote</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-content">
+		<div class="row">
+
+			<form action="" method="get">
+				<div class="immobilienangebote__search small-12 medium-8 medium-centered column">
+					<div class="input-bar">
+						<input class="input-bar__input" name="search" type="text" value="<?php echo($search_query); ?>" placeholder="Nach Immobilien suchen...">
+						<button class="input-bar__button" type="submit">Suchen</button>
+					</div>
+				</div>
+			</form>
+
+			<?php if (!$properties): ?>
+				<div class="column" style="text-align: center;">
+					Leider konnten keine Immobilien gefunden werden.
+				</div>
+			<?php endif; ?>
+
+			<div class="immobilienangebote__angebote-liste">
+				<?php foreach ($properties as $property): ?>
+					<div class="medium-4 column">
+						<div class="box immobilie">
+							<a href="<?php echo($property['slug']); ?>">
+								<div class="immobilie__thumb"><img src="<?php echo($property['thumbnail']); ?>"></div>
+								<div class="immobilie__info">
+									<?php echo($property['property_type']['name']); ?>
+									<h2><?php echo($property['name']); ?></h2>
+								</div>
+							</a>
+							<div class="immobilie__options">
+								<a class="immobilie__button" href="<?php echo($property['slug']); ?>">Exposé</a>
+								<a class="immobilie__button" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['name'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+
+		</div>
+	</div>
+</main>
