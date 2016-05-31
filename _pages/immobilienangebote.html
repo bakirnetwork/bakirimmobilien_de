@@ -1,22 +1,24 @@
 ---
 layout: default
+exec_php: |
+  <?php
+
+  $search_query = '';
+  if (isset($_GET['search'])) {
+    $search_query = $_GET['search'];
+  }
+
+  $api_json = file_get_contents($immoapi . '?query=' . $search_query);
+  $api_array = json_decode($api_json, true);
+
+  $properties = $api_array['properties'];
+
+  ?>
 title: Immobilienangebote
 permalink: /immobilienangebote/index.php
+canonical: /immobilienangebote/
+menu_link: /immobilienangebote/
 ---
-
-<?php
-
-$search_query = '';
-if (isset($_GET['search'])) {
-	$search_query = $_GET['search'];
-}
-
-$api_json = file_get_contents('{{ site.data.settings.immoapi }}?query=' . $search_query);
-$api_array = json_decode($api_json, true);
-
-$properties = $api_array['properties'];
-
-?>
 
 <main>
 	<div class="page-header page-header--center">

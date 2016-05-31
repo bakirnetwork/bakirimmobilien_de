@@ -4,7 +4,7 @@
 			<a href="/"><img class="main-header__logo" src="/assets/img/bakirimmobilien_logo_white.svg" alt="Bakir Immobilien"></a>
 			<nav class="main-header__nav">
 				{% for item in site.data.settings.menu %}
-					<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' %}class="current"{% endif %}>{{ item.name }}</a>
+					<a href="{{ item.url }}"{% if item.url == page.url | remove:'/index.html' or item.url == page.menu_link %}class="current"{% endif %}>{{ item.name }}</a>
 				{% endfor %}
 			</nav>
 		</div>

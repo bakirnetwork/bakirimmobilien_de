@@ -1,17 +1,19 @@
 ---
 layout: default
-title: Immobilienangebote
+exec_php: |
+  <?php
+
+  $property_slug = $_GET['slug'];
+
+  $api_json = file_get_contents($immoapi . $property_slug);
+  $property = json_decode($api_json, true);
+
+  ?>
+title: <?php echo $property['name']; ?>
 permalink: /immobilienangebote/angebot.php
+canonical: /immobilienangebote/<?php echo $property['slug']; ?>
+menu_link: /immobilienangebote/
 ---
-
-<?php
-
-$property_slug = $_GET['slug'];
-
-$api_json = file_get_contents('{{ site.data.settings.immoapi }}/' . $property_slug);
-$property = json_decode($api_json, true);
-
-?>
 
 <main>
 	<div class="page-header">
