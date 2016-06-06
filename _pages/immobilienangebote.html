@@ -21,18 +21,18 @@ menu_link: /immobilienangebote/
 ---
 
 <main>
-	<div class="page-header page-header--center">
+	<header class="page-header page-header--center">
 		<div class="row">
 			<div class="column">
 				<h1>Immobilienangebote</h1>
 			</div>
 		</div>
-	</div>
+	</header>
 
 	<div class="page-content">
 		<div class="row">
 
-			<form action="" method="get">
+			<form method="get">
 				<div class="immobilienangebote__search small-12 medium-8 medium-centered column">
 					<div class="input-bar">
 						<input class="input-bar__input" name="search" type="text" value="<?php echo($search_query); ?>" placeholder="Nach Immobilien suchen...">
@@ -47,12 +47,12 @@ menu_link: /immobilienangebote/
 				</div>
 			<?php endif; ?>
 
-			<div class="immobilienangebote__angebote-liste">
+			<ul class="immobilienangebote__angebote-liste">
 				<?php foreach ($properties as $property): ?>
-					<div class="medium-4 column">
+					<li class="medium-4 column">
 						<div class="box immobilie">
 							<a href="<?php echo($property['slug']); ?>">
-								<div class="immobilie__thumb"><img src="<?php echo($property['thumbnail']); ?>"></div>
+								<div class="immobilie__thumb"><img src="<?php echo($property['thumbnail']); ?>" alt="<?php echo($property['name']); ?>"></div>
 								<div class="immobilie__info">
 									<?php echo($property['property_type']['name']); ?>
 									<h2><?php echo($property['name']); ?></h2>
@@ -63,9 +63,9 @@ menu_link: /immobilienangebote/
 								<a class="immobilie__button" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['name'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
 							</div>
 						</div>
-					</div>
+					</li>
 				<?php endforeach; ?>
-			</div>
+			</ul>
 
 		</div>
 	</div>

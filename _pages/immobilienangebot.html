@@ -16,13 +16,13 @@ menu_link: /immobilienangebote/
 ---
 
 <main>
-	<div class="page-header">
+	<header class="page-header">
 		<div class="row">
 			<div class="column">
 				<h1><?php echo($property['name']); ?></h1>
 			</div>
 		</div>
-	</div>
+	</header>
 
 	<div class="page-content immobilie-page">
 		<div class="row immobilie-page__fields">
@@ -56,7 +56,7 @@ menu_link: /immobilienangebote/
 		</div>
 		<div class="row">
 			<div class="column">
-				<img class="immobilie__thumb" src="<?php echo($property['thumbnail']); ?>">
+				<img class="immobilie__thumb" src="<?php echo($property['thumbnail']); ?>" alt="<?php echo($property['name']); ?>">
 			</div>
 		</div>
 	</div>
