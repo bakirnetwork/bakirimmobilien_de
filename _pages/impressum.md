@@ -8,27 +8,22 @@ permalink: /impressum/
 
 Angaben gemäß § 5 TMG
 
-**Hauptsitz Hamburg**  
+**Hauptsitz Jever**  
 Bakir Immobilien GmbH  
+Sillensteder Straße 4A  
+26441 Jever  
+Telefon: [0049 (0) 4461 9160437](tel:+4944619160437)
+
+**Filiale Hamburg**  
 Rondeel 9  
 22301 Hamburg  
-Telefon: [0049 (0) 40 63779808](tel:+494063779808)
-
-**Filiale Oldenburg**  
-Bloherfelder Straße 130  
-26129 Oldenburg  
-Telefon: [0049 (0) 441 36162630](tel:+4944136162630)
+Telefon: [0049 (0) 171 6044393](tel:+491716044393)
 
 **Filiale Wilhelmshaven**  
 Virchowstraße 17  
 Im Robert-Koch-Haus  
 26382 Wilhelmshaven  
 Telefon: [0049 (0) 4421 994770](tel:+494421994770)
-
-**Filiale Jever**  
-Sillensteder Straße 4A  
-26441 Jever  
-Telefon: [0049 (0) 4461 9160437](tel:+4944619160437)
 
 Geschäftsführung: Jacqueline Bakir Brader  
 E-Mail: <a href="mailto:{{ site.data.settings.email }}" target="blank">{{ site.data.settings.email }}</a>  
