@@ -8,7 +8,7 @@ exec_php: |
     $search_query = $_GET['search'];
   }
 
-  $api_json = file_get_contents($immoapi . '?query=' . $search_query);
+  $api_json = file_get_contents($immoapiurl . '?api_token=' . $immoapikey . '&query=' . $search_query);
   $api_array = json_decode($api_json, true);
 
   $properties = $api_array['properties'];

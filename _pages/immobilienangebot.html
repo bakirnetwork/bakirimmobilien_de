@@ -5,7 +5,7 @@ exec_php: |
 
   $property_slug = $_GET['slug'];
 
-  $api_json = file_get_contents($immoapi . $property_slug);
+  $api_json = file_get_contents($immoapiurl . $property_slug . '?api_token=' . $immoapikey);
   $property = json_decode($api_json, true);
 
   ?>

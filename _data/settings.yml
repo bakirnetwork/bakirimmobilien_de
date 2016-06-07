@@ -13,4 +13,7 @@ menu:
 - name: Blog
   url: 'http://bakirimmobilien.tumblr.com'
 
-immoapi: https://beta.exposify.de/api/beta/bakirimmobilien
+# Please store the actual api data in `/_data/api.yml`.
+# This is to protect the API Credentials.
+immoapiurl: http://exposify-api-url.dev
+immoapikey: ExposifyApiKey
