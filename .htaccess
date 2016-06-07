@@ -9,7 +9,7 @@
 	RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 	# Rewrite property listings
-	RewriteCond %{THE_REQUEST} ^GET\s/immobilienangebote/(.+)\s.*?
+	RewriteCond %{THE_REQUEST} ^GET\s/immobilienangebote\/[^?\s]+
 	RewriteRule ^immobilienangebote/(.*)$ immobilienangebote/angebot.php?slug=$1 [QSA]
 
 	# Redirect old OnOffice interface
