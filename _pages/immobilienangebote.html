@@ -51,17 +51,12 @@ menu_link: /immobilienangebote/
 				<?php foreach ($properties as $property): ?>
 					<li class="medium-4 column">
 						<div class="box immobilie">
-							<a href="<?php echo($property['slug']); ?>">
-								<div class="immobilie__thumb"><img src="<?php echo($property['thumbnail']); ?>" alt="<?php echo($property['name']); ?>"></div>
-								<div class="immobilie__info">
-									<?php echo($property['property_type']['name']); ?>
-									<h2><?php echo($property['name']); ?></h2>
-								</div>
-							</a>
-							<div class="immobilie__options">
-								<a class="immobilie__button" href="<?php echo($property['slug']); ?>">Exposé</a>
-								<a class="immobilie__button" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['name'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
+							<div class="immobilie__thumb"><a href="<?php echo($property['slug']); ?>"><img src="<?php echo($property['thumbnail']); ?>" alt="<?php echo($property['name']); ?>"></a></div>
+							<div class="immobilie__info">
+								<?php echo($property['property_type']['name']); ?>
+								<a class="immobilie__title" href="<?php echo($property['slug']); ?>"><?php echo($property['name']); ?></a>
 							</div>
+							<a class="immobilie__action" href="<?php echo($property['slug']); ?>">Exposé ansehen</a>
 						</div>
 					</li>
 				<?php endforeach; ?>

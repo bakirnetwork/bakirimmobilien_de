@@ -13,25 +13,33 @@
 .immobilie
 	display: flex
 	flex-direction: column
-	a
+
+	&__thumb, &__info
 		display: flex
 		flex-direction: column
 		flex-grow: 1
-		border: none
-		&:hover
-			border: none
-	&__thumb img
-		width: 100%
-		vertical-align: middle
+
+	&__thumb
+		flex-grow: 0
+		a
+			border: none !important
+
+		img
+			width: 100%
+			vertical-align: middle
+
 	&__info
+		flex-grow: 1
 		padding: 20px
 		h2
 			margin-bottom: 5px
-	&__options
-		+cf
-	&__button
-		float: left
-		width: 50%
+
+	&__title
+		font-size: 1.8em
+		font-weight: bold
+		border: none !important
+
+	&__action
 		padding: 18px 0
 		border: none !important
 		color: white
@@ -40,14 +48,15 @@
 		transition: background .4s !important
 		&:hover
 			background: lighten($accent, 6%)
-		&:nth-child(1)
-			border-right: 2px solid lighten($accent, 10%) !important
 
 .immobilienangebote
 	&__search
 		margin-bottom: 2em
-	&__angebote-liste .column:nth-child(3n+1)
-		clear: left
+	&__angebote-liste
+		padding: 0
+		list-style: none
+		.column:nth-child(3n+1)
+			clear: left
 
 .immobilien
 	margin-bottom: 60px
@@ -55,6 +64,25 @@
 		display: none
 
 .immobilie-page
+	&__header-button
+		display: none
+		@media(min-width: 642px)
+			display: block
+			position: absolute
+			top: -6px
+			right: 0
+			padding: 15px 30px
+			color: white
+			text-decoration: none
+			line-height: 1
+			background: $accent
+			border: 2px solid darken($accent, 15%)
+			border-radius: 2px
+			outline: none
+			transition: all .4s
+			&:hover
+				background: lighten($accent, 6%)
+				border-color: $accent
 	&__fields
 		+cf
 		margin-bottom: 40px

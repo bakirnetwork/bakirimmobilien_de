@@ -18,8 +18,9 @@ menu_link: /immobilienangebote/
 <main>
 	<header class="page-header">
 		<div class="row">
-			<div class="column">
+			<div class="column" style="position: relative;">
 				<h1><?php echo($property['name']); ?></h1>
+				<a class="immobilie-page__header-button" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['name'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
 			</div>
 		</div>
 	</header>
