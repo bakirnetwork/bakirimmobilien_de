@@ -14,11 +14,6 @@ Sillensteder Straße 4A
 26441 Jever  
 Telefon: [0049 (0) 4461 9160437](tel:+4944619160437)
 
-**Filiale Hamburg**  
-Rondeel 9  
-22301 Hamburg  
-Telefon: [0049 (0) 171 6044393](tel:+491716044393)
-
 **Filiale Wilhelmshaven**  
 Virchowstraße 17  
 Im Robert-Koch-Haus  
