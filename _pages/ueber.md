@@ -9,7 +9,7 @@ Wir sind Ihr Partner, denn Partnerschaft ist Vertrauenssache.
 Die fachlich intensive Auseinandersetzung mit den komplexen Anforderungen des gesamten Immobilienmarktes ist die entscheidende Grundlage unseres Services. Mehr als 25 Jahre Berufserfahrung bürgen für professionelle Marktkenntnis und Kompetenz.
 
 Unsere Angebotspalette umfasst Immobilien jeglicher Art, wie zum Beispiel:  
-Verkauf und Vermietung von Eigentumswohnungen, Häuser, Pensionen, Ferienobjekten, Gewerbeobjekten, Industrieanlagen, Lagerhallen, Grundstücke, Anlage- Renditeobjeten, Resthöfen, Landsitzen, Hotels in und Ausland.  
+Verkauf und Vermietung von Eigentumswohnungen, Häusern, Pensionen, Ferienobjekten, Gewerbeobjekten, Industrieanlagen, Lagerhallen, Grundstücke, Anlage- Renditeobjekten, Resthöfen, Landsitzen, Hotels im In- und Ausland.  
 Weitere Dienstleistungen sind Wertermittlung (Gutachten), Verwaltung sowie Finanzierung von Immobilien. Zuverlässigkeit, Schnelligkeit und Professionalität ist unsere Überzeugung. Dafür stehen wir drei BAKIR Schwestern mit unserem Familiennamen.  
 Hochqualifizierte Mitarbeiter zeichnen unser Unternehmen aus und werden kontinuierlich und intensiv geschult, damit eine umfassende Beratung und ein Rundumservice gewährleistet werden. Sorgfalt und fachkundige Beratung stehen bei uns im Mittelpunkt.
 
