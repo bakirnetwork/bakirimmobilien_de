@@ -5,7 +5,7 @@ permalink: /leistungen/
 ---
 
 Egal ob sie verkaufen oder vermieten wollen, die dafür zu erledigenden Aufgaben benötigen viel Zeit und Geld. Es müssen beispielsweise Unterlagen zusammengestellt werden, Behördengänge durchgeführt und Richtwerte ermittelt werden. Wir übernehmen alle anfallenden Aufgaben für Sie und erzielen dabei den maximalen Verkaufs- oder Mieterlös.  
-Wir unterstützen sie beim Verkauf oder der Vermietung von Grundstücken, Wohnungen, Gewerbeobjekte, Auslandsimmobilien und mehr.
+Wir unterstützen sie beim Verkauf oder der Vermietung von Grundstücken, Wohnungen, Gewerbeobjekten, Auslandsimmobilien und mehr.
 
 <div class="medium-10 medium-push-1 box">
 
