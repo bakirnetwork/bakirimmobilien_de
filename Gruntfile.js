@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 		sshconfig: {
 			production: {
 				host:     '<%= secret.host %>',
+				port:     '<%= secret.port %>',
 				username: '<%= secret.username %>',
 				password: '<%= secret.password %>',
 				deployTo: '<%= secret.deployTo %>'
