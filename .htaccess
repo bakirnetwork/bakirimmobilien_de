@@ -4,6 +4,7 @@
 	# Rewrite to .www
 	RewriteCond %{HTTPS} !=on
 	RewriteCond %{HTTP_HOST} !^www\. [NC]
+	RewriteCond %{HTTP_HOST} !\.dev$
 	RewriteCond %{SERVER_ADDR} !=127.0.0.1
 	RewriteCond %{SERVER_ADDR} !=::1
 	RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
