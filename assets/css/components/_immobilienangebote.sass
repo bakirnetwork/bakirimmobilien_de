@@ -66,6 +66,21 @@
 		display: none
 
 .immobilie-page
+	&__thumb
+		width: 100%
+
+	&__images
+		+cf
+		width: calc(100% + 20px)
+		margin: 5px -10px 1em
+		a
+			width: 20%
+			padding: 10px
+			float: left
+			border: none !important
+		img
+			width: 100%
+
 	&__header-button
 		display: none
 		@media(min-width: 642px)
