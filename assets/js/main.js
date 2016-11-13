@@ -41,3 +41,7 @@ $('form.ajax').on('submit', function() {
 
 	return false;
 });
+
+$(function() {
+	$('.immobilie-page__images a').simpleLightbox();
+});
