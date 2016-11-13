@@ -51,9 +51,9 @@ menu_link: /immobilienangebote/
 				<?php foreach ($properties as $property): ?>
 					<li class="medium-4 column">
 						<div class="box immobilie">
-							<div class="immobilie__thumb"><a href="<?php echo($property['slug']); ?>"><img src="<?php echo($property['thumbnail']); ?>" alt="<?php echo($property['name']); ?>"></a></div>
+							<div class="immobilie__thumb"><a href="<?php echo($property['slug']); ?>"><img src="<?php echo($property['thumbnail']['versions']['thumb']); ?>" alt="<?php echo($property['name']); ?>"></a></div>
 							<div class="immobilie__info">
-								<?php echo($property['property_type']['name']); ?>
+								<?php echo($property['type']); ?>
 								<a class="immobilie__title" href="<?php echo($property['slug']); ?>"><?php echo($property['name']); ?></a>
 							</div>
 							<a class="immobilie__action" href="<?php echo($property['slug']); ?>">Exposé ansehen</a>
