@@ -45,6 +45,7 @@ body.hidden-scroll {
 	width: 44px;
 	line-height: 44px;
 	font-family: Arial, Baskerville, monospace;
+	color: black;
 }
 /* line 42, ../sass/simplelightbox.scss */
 .sl-wrapper .sl-counter {
@@ -75,10 +76,12 @@ body.hidden-scroll {
 /* line 64, ../sass/simplelightbox.scss */
 .sl-wrapper .sl-navigation button.sl-next {
 	right: 5px;
+	color: black;
 }
 /* line 68, ../sass/simplelightbox.scss */
 .sl-wrapper .sl-navigation button.sl-prev {
 	left: 5px;
+	color: black;
 }
 @media (min-width: 38.75em) {
 	/* line 53, ../sass/simplelightbox.scss */
