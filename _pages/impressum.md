@@ -8,24 +8,18 @@ permalink: /impressum/
 
 Angaben gemäß § 5 TMG
 
-**Hauptsitz Jever**  
 Bakir Immobilien GmbH  
 Sillensteder Straße 4A  
 26441 Jever  
-Telefon: [0049 (0) 171 6044393](tel:+491716044393)
 
-**Filiale Wilhelmshaven**  
-Virchowstraße 17  
-Im Robert-Koch-Haus  
-26382 Wilhelmshaven  
-Telefon: [0049 (0) 4421 994770](tel:+494421994770)
+Email: <a href="mailto:{{ site.data.settings.email }}" target="blank">{{ site.data.settings.email }}</a>  
+Telefon: [04461 966930](tel:+494461966930)  
+Mobil: [0171 6044393](tel:+491716044393)
 
 Geschäftsführung: Jacqueline Bakir Brader  
-E-Mail: <a href="mailto:{{ site.data.settings.email }}" target="blank">{{ site.data.settings.email }}</a>  
-Homepage: [www.bakirimmobilien.de](http://www.bakirimmobilien.de)  
 Mitglied im [Immobilienverband IVD](http://www.ivd.net)
 
-Webdesign und Umsetzung: [Niklas Ravnsborg-Gjertsen](http://www.niklasravnsborg.com)
+Webdesign und Umsetzung: <a href="https://www.exposify.de" target="blank">Niklas von Exposify</a>  
 
 **Registereintrag**  
 Eintragung im Handelsregister  
@@ -49,7 +43,7 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 
 **Datenschutz**  
 Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.  
-Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.  
+Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per Email) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.  
 Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
 
 **Datenschutzerklärung für die Nutzung von Facebook-Plugins (Like-Button)**  

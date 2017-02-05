@@ -1,4 +1,32 @@
-.contact
+.contact-links
+	&__box
+		+cf
+		display: block
+		height: 80px
+		max-width: 420px
+		background-color: $white2
+		border-radius: 40px
+		border-bottom: none !important
+		text-decoration: none
+
+	&__icon
+		float: left
+
+	&__link
+		float: right
+		width: calc(100% - 110px)
+		margin-top: 1.9em
+		margin-left: 10px
+		margin-right: 20px
+		text-align: center
+		text-transform: uppercase
+		text-overflow: ellipsis
+		overflow: hidden
+		@media(min-width: 850px)
+			margin-top: 1.4em
+			font-size: 1.2em
+
+.contact-form
 	+cf
 
 .contact-info

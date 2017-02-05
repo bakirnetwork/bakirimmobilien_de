@@ -7,10 +7,35 @@
 <?php if (isset($meta)): ?>
 	<h2><?php echo $meta; ?></h2>
 <?php else: ?>
-	<p>Sie möchten eine Immobilie veräußern oder brauchen weitere Informationen? Nehmen Sie Kontakt zu uns auf über dieses Formular oder schreiben Sie eine Mail an <a href="mailto:{{ site.data.settings.email }}">{{ site.data.settings.email }}</a>.</p>
+	<p>Sie möchten eine Immobilie veräußern oder brauchen weitere Informationen? Nehmen Sie Kontakt zu uns auf.</p>
 <?php endif ?>
 
-<form class="contact ajax" action="/assets/php/contact.php" method="POST">
+<div class="contact-links row">
+
+	<div class="medium-6 column">
+		<a class="contact-links__box" href="mailto:{{ site.data.settings.email }}" target="_blank">
+			<div class="contact-links__icon circle-icon circle-icon--small">
+				<span class="typcn typcn-mail"></span>
+			</div>
+			<div class="contact-links__link">
+				{{ site.data.settings.email }}
+			</div>
+		</a>
+	</div>
+	<div class="medium-6 column">
+		<a class="contact-links__box" href="tel:+494461966930">
+			<div class="contact-links__icon circle-icon circle-icon--small">
+				<span class="typcn typcn-phone" style="line-height: 47px;"></span>
+			</div>
+			<div class="contact-links__link">
+				Telefon: 04461 966930
+			</div>
+		</a>
+	</div>
+
+</div>
+
+<form class="contact-form ajax" action="/assets/php/contact.php" method="POST">
 	<div class="contact-info">
 		<fieldset class="contact-name">
 			<label for="name">Name</label>
