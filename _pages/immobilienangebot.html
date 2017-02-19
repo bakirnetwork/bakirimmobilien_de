@@ -32,8 +32,8 @@ menu_link: /immobilienangebote/
 				<div class="immobilie-page__images">
 					<?php foreach($property['images'] as $image): ?>
 						<?php if (!$image['is_thumbnail']): ?>
-							<a href="<?php echo $image['versions']['orig']; ?>">
-								<img src="<?php echo $image['versions']['thumb']; ?>" alt="<?php echo $property['name']; ?>">
+							<a href="<?php echo $image['versions']['original']; ?>">
+								<img src="<?php echo $image['versions']['thumbnail']; ?>" alt="<?php echo $property['name']; ?>">
 							</a>
 						<?php endif; ?>
 					<?php endforeach; ?>
