@@ -28,7 +28,7 @@ Registernummer: 129114
 
 **Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:** DE 192681098  
 **Gewerbeerlaubnis gem. § 34c GewO wurde erteilt durch:** Stadt Wilhelmshaven  
-**Zuständige Aufsichtsbehörde:** Ordnungsamt Stadt Wilhelmshaven, Rathausplatz, 26382 Wilhelmshaven
+**Zuständige Aufsichtsbehörde:** Oldenburgische Industrie- und Handelskammer, Moslestraße 6, 26122 Oldenburg
 
 ## Haftungsausschluss
 
