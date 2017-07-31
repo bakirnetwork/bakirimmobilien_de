@@ -43,5 +43,103 @@ $('form.ajax').on('submit', function() {
 });
 
 $(function() {
-	$('.immobilie-page__images a').simpleLightbox();
+	var gallery = $('.slider .column'),
+	    imgs    = gallery.find('.slider-img'),
+	    len     = imgs.length,
+	    current = 0,  // the current item we're looking
+	    moving  = false, // current animation state
+
+	    firstChild      = imgs.filter(':nth-child(1)'),
+	    secondChild     = imgs.filter(':nth-child(2)'),
+	    firstLastChild  = imgs.filter(':nth-last-child(1)'),
+	    secondLastChild = imgs.filter(':nth-last-child(2)');
+
+	// Clone the first and last items
+	firstChild.before(secondLastChild.clone(true));
+	firstChild.before(firstLastChild.clone(true));
+	firstLastChild.after(secondChild.clone(true));
+	firstLastChild.after(firstChild.clone(true));
+
+	var items = gallery.find('.slider-img');
+
+	// Add js-slider-control class to all slider <img>’s in DOM
+	items.each(function() {
+		$(this).addClass('js-slider-control');
+	})
+
+	$.Velocity.hook(gallery, 'translateX', -970 * 2  + 'px');
+	$(imgs[current]).addClass('slider-img-current');
+
+	updateSliderClasses(0 + 2, current + 2);
+
+	function updateSliderClasses(oldIndex, newIndex, transition = true) {
+		if (!transition) {
+			$(items[oldIndex]).addClass('slider-img-no-transition');
+			$(items[newIndex]).addClass('slider-img-no-transition');
+
+			setTimeout(function() {
+				$(items[oldIndex]).removeClass('slider-img-no-transition');
+				$(items[newIndex]).removeClass('slider-img-no-transition');
+			}, 1)
+		}
+
+		$(items[oldIndex]).removeClass('slider-img-current');
+		$(items[oldIndex - 1]).removeClass('js-slider-prev');
+		$(items[oldIndex + 1]).removeClass('js-slider-next');
+
+		$(items[newIndex]).addClass('slider-img-current');
+		$(items[newIndex - 1]).addClass('js-slider-prev');
+		$(items[newIndex + 1]).addClass('js-slider-next');
+	}
+
+	function moveSlider(delta = 1) {
+		if (gallery.is(':not(:animated)')) {
+
+			var cycle = false;
+
+			gallery.velocity(
+				{ translateX: (current + delta + 2) * -970 },
+				{ begin: function() {
+
+					moving = true;
+					updateSliderClasses(current + 2, current + delta + 2);
+
+				}, complete: function() {
+
+					current += delta;
+
+					// cycling of the slider when one “turn” is completed
+					if (current == -1 ) {
+						// left overflow
+						console.log(len);
+						current = len - 1;
+						$.Velocity.hook(gallery, 'translateX', -970 * (current + 2)  + 'px');
+						updateSliderClasses(1, len + 1, false);
+					} else if (current > len -1) {
+						// right overflow
+						current = 0;
+						$.Velocity.hook(gallery, 'translateX', -970 * (current + 2)  + 'px');
+						updateSliderClasses(len + 2, current + 2, false);
+					}
+
+					moving = false;
+
+				}}
+			);
+		}
+	}
+
+	$('.js-slider-control').click(function() {
+		that = $(this);
+
+		if (moving) {
+			return;
+		}
+
+		if (that.hasClass('js-slider-prev')) {
+			moveSlider(-1);
+		} else if (that.hasClass('js-slider-next')) {
+			moveSlider(1);
+		}
+	});
 });

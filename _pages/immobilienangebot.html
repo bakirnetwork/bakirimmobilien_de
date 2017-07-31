@@ -3,13 +3,116 @@ layout: default
 exec_php: |
   <?php
 
-  $property_slug = $_GET['slug'];
+  require('../assets/php/exposify.php');
 
-  $api_json = file_get_contents($immoapiurl . $property_slug . '?api_token=' . $immoapikey);
-  $property = json_decode($api_json, true);
+  /**
+  * Get the base URL.
+  *
+  * @return string
+  */
+  function getBasePath() {
+    return strtok($_SERVER["REQUEST_URI"],'?');
+  }
+
+  /**
+  * Get a sorted images array.
+  *
+  * @param  array  $property
+  * @return array
+  */
+  function getSortedImages($property) {
+    usort($property['images'], function($imageOne, $imageTwo) {
+      $a = $imageOne['attributes']['order'];
+      $b = $imageTwo['attributes']['order'];
+      if ($a == $b) return 0;
+      return ($a < $b) ? -1 : 1;
+    });
+    return $property['images'];
+  }
+
+  /**
+  * Get a sorted fields array.
+  *
+  * @param  array  $property
+  * @return array
+  */
+  function getSortedFields($property) {
+    usort($property['fields'], function($fieldOne, $fieldTwo) {
+      $a = $fieldOne['attributes']['order'];
+      $b = $fieldTwo['attributes']['order'];
+      if ($a == $b) return 0;
+      return ($a < $b) ? -1 : 1;
+    });
+    return $property['fields'];
+  }
+
+  /**
+  * Get all small fields.
+  *
+  * @param  array  $property
+  * @return array
+  */
+  function getSmallFields($property, $groups = 1) {
+
+    $fields = array_filter(getSortedFields($property), function($field) use (&$count) {
+      return $field['attributes']['type'] !== 'textarea';
+    });
+
+    $count = count($fields); // how many fields are there? // 21
+
+    if ($groups === 1) {
+      return $fields;
+    } else {
+      $fields_per_group = ceil($count / $groups); // round up
+      return array_chunk($fields, $fields_per_group);
+    }
+  }
+
+  /**
+  * Get all large fields.
+  *
+  * @param  array  $property
+  * @return array
+  */
+  function getLargeFields($property) {
+    $fields = array_filter(getSortedFields($property), function($field) {
+      return $field['attributes']['type'] === 'textarea';
+    });
+    return $fields;
+  }
+
+  /**
+  * Get a value to display from a field.
+  *
+  * @param  array  $field
+  * @return string
+  */
+  function getFieldValue($field) {
+    $value = $field['attributes']['value'];
+    if ($field['attributes']['type'] === 'price') {
+      $value = number_format($value, 2, ',', '.') . ' €';
+    } else if ($field['attributes']['type'] === 'area') {
+      $value = number_format($value, 2, ',', '.') . ' m²';
+    } else if ($field['attributes']['type'] === 'radio') {
+      $value = ($value == 1) ? 'Ja' : 'Nein';
+    }
+    return $value;
+  }
+
+  $exposify = new Exposify($immoapikey);
+  $exposify->requestSingleProperty($_GET['slug']);
+
+  if (empty($exposify->getError())) {
+    $result = $exposify->getResult();
+    $property = $result['attributes'];
+    $contact = $result['attributes']['contact'];
+  } else {
+    if ($exposify->getError()['title'] === 'Not found') http_response_code(404);
+    else http_response_code(500);
+  }
 
   ?>
-title: <?php echo $property['name']; ?>
+title: <?php echo $property['title']; ?>
 permalink: /immobilienangebote/angebot.php
 canonical: /immobilienangebote/<?php echo $property['slug']; ?>
 menu_link: /immobilienangebote/
@@ -19,55 +122,63 @@ menu_link: /immobilienangebote/
 	<header class="page-header">
 		<div class="row">
 			<div class="column" style="position: relative;">
-				<h1><?php echo($property['name']); ?></h1>
-				<a class="immobilie-page__header-button" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['name'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
+				<h1><?php echo($property['title']); ?></h1>
+				<a style="float: right; margin-top: -25px;" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['title'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
 			</div>
 		</div>
 	</header>
 
-	<div class="page-content immobilie-page">
+	<div class="slider property-slider">
 		<div class="row">
 			<div class="column">
-				<img class="immobilie-page__thumb" src="<?php echo($property['thumbnail']['versions']['wide']); ?>" alt="<?php echo($property['name']); ?>">
-				<div class="immobilie-page__images">
-					<?php foreach($property['images'] as $image): ?>
-						<?php if (!$image['is_thumbnail']): ?>
-							<a href="<?php echo $image['versions']['original']; ?>">
-								<img src="<?php echo $image['versions']['thumbnail']; ?>" alt="<?php echo $property['name']; ?>">
-							</a>
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</div>
+				<?php foreach(getSortedImages($property) as $image): ?>
+					<img class="slider-img" src="<?php echo $image['links']['wide'] ?>" alt="<?php echo($property['title']); ?>">
+				<?php endforeach; ?>
 			</div>
 		</div>
-		<div class="row immobilie-page__fields">
+
+		<button class="slider-next js-slider-control js-slider-prev">‹</button>
+		<button class="slider-prev js-slider-control js-slider-next">›</button>
+	</div>
+
+	<div class="page-content">
+
+		<div class="row property-info-row">
+
 			<div class="column">
 				<h2>Details</h2>
 			</div>
+
 			<div class="medium-6 column">
-				<strong>Typ:</strong>
-				<?php echo( $property['type'] ); ?>
+				<?php foreach(getSmallFields($property, 2)[0] as $field): ?>
+					<div class="property-info-line">
+						<b><?php echo $field['attributes']['name'] ?>:</b>
+						<?php echo getFieldValue($field) ?>
+					</div>
+				<?php endforeach; ?>
 			</div>
-			<?php foreach ($property['fields'] as $field_name => $field): ?>
-				<?php if ($field['type'] != 'textarea'): ?>
-					<div class="medium-6 column">
-						<strong><?php echo( $field_name ); ?>:</strong>
-						<?php echo( $field['value'] ); ?>
-						<?php if ($field['type'] == 'price'): ?>€<?php endif; ?>
-						<?php if ($field['type'] == 'area'): ?>m<sup>2</sup><?php endif; ?>
+
+			<div class="medium-6 column">
+				<?php foreach(getSmallFields($property, 2)[1] as $field): ?>
+					<div class="property-info-line">
+						<b><?php echo $field['attributes']['name'] ?>:</b>
+						<?php echo getFieldValue($field) ?><br>
 					</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+			</div>
+
 		</div>
-		<div class="row immobilie-page__texts">
-			<?php foreach ($property['fields'] as $field_name => $field): ?>
-				<?php if ($field['type'] == 'textarea'): ?>
-					<div class="column">
-						<h2><?php echo($field_name); ?></h2>
-						<p><?php echo(nl2br(htmlentities($field['value'], ENT_COMPAT, 'UTF-8'))); ?></p>
-					</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
+
+		<?php foreach(getLargeFields($property) as $field): ?>
+			<div class="row property-info-row">
+				<div class="medium-4 column">
+					<h2><?php echo $field['attributes']['name'] ?></h2>
+				</div>
+				<div class="medium-8 column">
+					<p><?php echo $field['attributes']['value'] ?></p>
+				</div>
+			</div>
+		<?php endforeach; ?>
+
 	</div>
 </main>

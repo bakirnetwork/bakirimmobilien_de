@@ -3,15 +3,37 @@ layout: default
 exec_php: |
   <?php
 
-  $search_query = '';
-  if (isset($_GET['search'])) {
-    $search_query = $_GET['search'];
+  require('../assets/php/exposify.php');
+
+  /**
+  * Get the current search query.
+  *
+  * @return string
+  */
+  function getSearchQuery()
+  {
+  	return isset($_GET['search']) ? $_GET['search'] : '';
   }
 
-  $api_json = file_get_contents($immoapiurl . '?api_token=' . $immoapikey . '&query=' . $search_query);
-  $api_array = json_decode($api_json, true);
+  /**
+  * Get the URL without parameters.
+  *
+  * @return string
+  */
+  function getBasePath()
+  {
+  	return strtok($_SERVER["REQUEST_URI"], '?');
+  }
 
-  $properties = $api_array['properties'];
+  $exposify = new Exposify($immoapikey, 'https://app.exposify.de');
+  $exposify->requestAllProperties(getSearchQuery());
+
+  if (!empty($exposify->getError())) {
+    http_response_code(500);
+  }
+
+  $search_query = getSearchQuery();
+  $properties = $exposify->getResult()
 
   ?>
 title: Immobilienangebote
@@ -44,20 +66,20 @@ menu_link: /immobilienangebote/
 			<?php if (!$properties): ?>
 				<div class="column" style="text-align: center;">
 					Leider konnten keine Immobilien gefunden werden.
+					<a class="search-exit <?php echo getSearchQuery() ? 'search-exit--visible' :'' ?>" href="<?php echo getBasePath() ?>">
+
+					</a>
+					← <span class="search-exit__text">Zurück zur Übersicht</span>
 				</div>
 			<?php endif; ?>
 
-			<ul class="immobilienangebote__angebote-liste">
+			<ul class="offers">
 				<?php foreach ($properties as $property): ?>
-					<li class="medium-4 column">
-						<div class="box immobilie">
-							<div class="immobilie__thumb"><a href="<?php echo($property['slug']); ?>"><img src="<?php echo($property['thumbnail']['versions']['thumbnail']); ?>" alt="<?php echo($property['name']); ?>"></a></div>
-							<div class="immobilie__info">
-								<?php echo($property['type']); ?>
-								<a class="immobilie__title" href="<?php echo($property['slug']); ?>"><?php echo($property['name']); ?></a>
-							</div>
-							<a class="immobilie__action" href="<?php echo($property['slug']); ?>">Exposé ansehen</a>
-						</div>
+					<li class="medium-6 column">
+						<a class="box offers-property" href="<?php echo($property['attributes']['slug']); ?>">
+							<img class="offers-property-img" src="<?php echo($property['attributes']['thumbnail']['links']['thumbnail']); ?>" alt="<?php echo($property['attributes']['title']); ?>">
+							<h2 class="offers-property-title"><?php echo($property['attributes']['title']); ?></h2>
+						</a>
 					</li>
 				<?php endforeach; ?>
 			</ul>
