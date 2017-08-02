@@ -12,7 +12,33 @@ exec_php: |
   */
   function getSearchQuery()
   {
-  	return isset($_GET['search']) ? $_GET['search'] : '';
+    return isset($_GET['search']) ? $_GET['search'] : '';
+  }
+
+  /**
+   * Get the current category query.
+   *
+   * @return string
+   */
+  function getCategoryQuery()
+  {
+    return isset($_GET['cat']) ? $_GET['cat'] : '';
+  }
+
+  /**
+   * Filter Exposify properties by given categories.
+   *
+   * @param  array  $properties  Exposify properties array input
+   * @param  array  $categories  Categories to filter by
+   * @return array               Filtered properties array
+   */
+  function filterCategories($properties, $categories) {
+    foreach ($properties as $i => $property) {
+      if (!in_array($property['attributes']['category'], $categories)) {
+        unset($properties[$i]);
+      }
+    }
+    return $properties;
   }
 
   /**
@@ -22,7 +48,7 @@ exec_php: |
   */
   function getBasePath()
   {
-  	return strtok($_SERVER["REQUEST_URI"], '?');
+    return strtok($_SERVER["REQUEST_URI"], '?');
   }
 
   $exposify = new Exposify($immoapikey, 'https://app.exposify.de');
@@ -32,44 +58,93 @@ exec_php: |
     http_response_code(500);
   }
 
-  $search_query = getSearchQuery();
-  $properties = $exposify->getResult()
+  $searchQuery = getSearchQuery();
+  $category    = getCategoryQuery();
+
+  $title = 'Alle Immobilienangebote';
+  $properties = $exposify->getResult();
+
+  $typeMap = [
+    'mieten' => [
+      'title' => 'Immobilienangebote zur Miete',
+      'types' => [
+        'Mietwohnung'
+      ]
+    ],
+    'kaufen' => [
+      'title' => 'Immobilienangebote zum Kauf',
+      'types' => [
+        'Reihenendhaus',
+        'Reihenmittelhaus',
+        'Eigentumswohnung',
+        'Einfamilienhaus'
+      ]
+    ],
+    'anlegen' => [
+      'title' => 'Immobilienangebote zum Anlegen',
+      'types' => [
+        'Zinshaus / Renditeobjekt',
+        'Mehrfamilienhaus'
+      ]
+    ],
+    'gewerbe' => [
+      'title' => 'Immobilienangebote für Gewerbe',
+      'types' => [
+        'Gewerbeimmobilie zum Kauf',
+        'Gewerbeimmobilie zur Miete'
+      ]
+    ],
+  ];
+
+  if (isset($typeMap[$category])) {
+    $title = $typeMap[$category]['title'];
+    $properties = filterCategories($properties, $typeMap[$category]['types']);
+  }
 
   ?>
-title: Immobilienangebote
+title: <?php echo $title ?>
 permalink: /immobilienangebote/index.php
 canonical: /immobilienangebote/
 menu_link: /immobilienangebote/
 ---
 
 <main>
-	<header class="page-header page-header--center">
+	<header class="page-header">
 		<div class="row">
-			<div class="column">
-				<h1>Immobilienangebote</h1>
+			<div class="medium-7 column">
+				<h1 style="margin-top: 0.2em;"><?php echo $title ?></h1>
 			</div>
+			<form class="medium-5 column" method="get">
+				<div class="input-bar">
+					<input class="input-bar__input" name="search" type="text" value="<?php echo($searchQuery); ?>" placeholder="Immobilie suchen (z.B. PLZ, Ort)">
+					<input name="cat" type="hidden" value="<?php echo $category ?>">
+					<button class="input-bar__button" type="submit">Suchen</button>
+				</div>
+			</form>
 		</div>
 	</header>
+
+	<div class="offers-page-filter">
+		<div class="row">
+			<div class="column">
+				<a href="/immobilienangebote/">Alle</a>
+				<a href="?cat=mieten">Mieten</a>
+				<a href="?cat=kaufen">Kaufen</a>
+				<a href="?cat=anlegen">Anlegen</a>
+				<a href="?cat=gewerbe">Gewerbe</a>
+			</div>
+		</div>
+	</div>
 
 	<div class="page-content">
 		<div class="row">
 
-			<form method="get">
-				<div class="immobilienangebote__search small-12 medium-8 medium-centered column">
-					<div class="input-bar">
-						<input class="input-bar__input" name="search" type="text" value="<?php echo($search_query); ?>" placeholder="Nach Immobilien suchen...">
-						<button class="input-bar__button" type="submit">Suchen</button>
-					</div>
-				</div>
-			</form>
-
 			<?php if (!$properties): ?>
-				<div class="column" style="text-align: center;">
+				<div class="column" style="text-align: center; margin-top: 1em;">
 					Leider konnten keine Immobilien gefunden werden.
-					<a class="search-exit <?php echo getSearchQuery() ? 'search-exit--visible' :'' ?>" href="<?php echo getBasePath() ?>">
-
+					<a href="<?php echo getBasePath() ?>">
+						← <span>Zurück zur Übersicht</span>
 					</a>
-					← <span class="search-exit__text">Zurück zur Übersicht</span>
 				</div>
 			<?php endif; ?>
 
