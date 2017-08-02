@@ -19,6 +19,5 @@ Qualifizierte Mitarbeiter arbeiten mit uns und werden kontinuierlich und intensi
 Fünfundzwanzig Jahre sind eine lange Zeit in der wir viel bewegt und viel gelernt haben. Unser Ziel ist es innovativ zu vermarkten, Ihre Immobilie durch moderne und neu geschaffene Konzepte zu vermitteln. Die Zukunft heißt Objekt-Tracking.
 Der Auftraggeber kann jederzeit in einem passwortgeschützten Bereich unserer Homepage alle Aktivitäten „seines Objektes“ einsehen. Hiermit hat der Auftraggeber die Möglichkeit, sich just in time via Internet über den Vermarktungsstand seiner Immobilien zu informieren.
 Mein Team und ich freuen uns auf Ihren Besuch!
-Sie finden uns im Robert-Koch-Haus, Virchowstraße 17 in Wilhelmshaven
 
 Jacqueline Bakir Brader
