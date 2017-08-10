@@ -104,6 +104,7 @@ exec_php: |
 
   if (empty($exposify->getError())) {
     $result = $exposify->getResult();
+    $id = $result['id'];
     $property = $result['attributes'];
     $contact = $result['attributes']['contact'];
   } else {
@@ -123,7 +124,7 @@ menu_link: /immobilienangebote/
 		<div class="row">
 			<div class="column" style="position: relative;">
 				<h1><?php echo($property['title']); ?></h1>
-				<a style="float: right; margin-top: -25px;" href="http://www.bakirimmobilien.de/kontakt/?meta=<?php echo(urlencode('Anfrage: ' . $property['title'] . ' (#' . $property['id'] . ')')); ?>">Anfragen</a>
+				<button class="js-open-request-modal" style="float: right; margin-top: -25px;">Anfragen</button>
 			</div>
 		</div>
 	</header>
@@ -182,3 +183,23 @@ menu_link: /immobilienangebote/
 
 	</div>
 </main>
+
+
+<div class="modal-container js-close-request-modal" id="request-modal-container">
+	<form class="modal box request-modal ajax" action="https://app.exposify.de/track-property-request" method="post" data-success-status="requested">
+		<h3 class="box__title">
+			Wir melden uns bei Ihnen!
+			<span class="exit js-close-request-modal">
+				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewbox="0 0 40 40" style="margin-top: -4px; margin-right: -4px;"><path stroke="#FFFFFF" d="M 10,10 L 30,30 M 30,10 L 10,30"></svg>
+			</span>
+		</h3>
+		<div class="box__content">
+			<p>Hinterlassen Sie uns Ihren Namen und Ihre Telefonnummer, damit wir Sie erreichen können, um alle Fragen zu klären.</p>
+			<input name="property_id" type="hidden" value="<?php echo $id ?>">
+			<input name="client_name" type="text" placeholder="Vor- und Nachname" required>
+			<input name="client_phone" type="text" placeholder="Telefonnummer" required>
+			<div class="status request-modal-action"><button type="submit">Rückrufbitte absenden</button></div>
+		</div>
+
+	</form>
+</div>

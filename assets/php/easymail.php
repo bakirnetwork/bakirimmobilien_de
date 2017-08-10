@@ -13,9 +13,9 @@
 
 function validMail($mail) {
 	if (filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
-		return 0;
+		return false;
 	} else {
-		return 1;
+		return true;
 	}
 }
 
