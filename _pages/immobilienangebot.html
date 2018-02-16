@@ -55,7 +55,7 @@ exec_php: |
   function getSmallFields($property, $groups = 1) {
 
     $fields = array_filter(getSortedFields($property), function($field) use (&$count) {
-      return $field['attributes']['type'] !== 'textarea';
+      return $field['attributes']['type'] !== 'long';
     });
 
     $count = count($fields); // how many fields are there? // 21
@@ -76,7 +76,7 @@ exec_php: |
   */
   function getLargeFields($property) {
     $fields = array_filter(getSortedFields($property), function($field) {
-      return $field['attributes']['type'] === 'textarea';
+      return $field['attributes']['type'] === 'long';
     });
     return $fields;
   }
