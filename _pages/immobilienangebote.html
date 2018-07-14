@@ -6,10 +6,10 @@ exec_php: |
   require('../assets/php/exposify.php');
 
   /**
-  * Get the current search query.
-  *
-  * @return string
-  */
+   * Get the current search query.
+   *
+   * @return string
+   */
   function getSearchQuery()
   {
     return isset($_GET['search']) ? $_GET['search'] : '';
@@ -42,10 +42,10 @@ exec_php: |
   }
 
   /**
-  * Get the URL without parameters.
-  *
-  * @return string
-  */
+   * Get the URL without parameters.
+   *
+   * @return string
+   */
   function getBasePath()
   {
     return strtok($_SERVER["REQUEST_URI"], '?');

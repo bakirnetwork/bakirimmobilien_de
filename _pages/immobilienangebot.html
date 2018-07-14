@@ -6,20 +6,20 @@ exec_php: |
   require('../assets/php/exposify.php');
 
   /**
-  * Get the base URL.
-  *
-  * @return string
-  */
+   * Get the base URL.
+   *
+   * @return string
+   */
   function getBasePath() {
     return strtok($_SERVER["REQUEST_URI"],'?');
   }
 
   /**
-  * Get a sorted images array.
-  *
-  * @param  array  $property
-  * @return array
-  */
+   * Get a sorted images array.
+   *
+   * @param  array  $property
+   * @return array
+   */
   function getSortedImages($property) {
     usort($property['images'], function($imageOne, $imageTwo) {
       $a = $imageOne['attributes']['order'];
@@ -31,11 +31,11 @@ exec_php: |
   }
 
   /**
-  * Get a sorted fields array.
-  *
-  * @param  array  $property
-  * @return array
-  */
+   * Get a sorted fields array.
+   *
+   * @param  array  $property
+   * @return array
+   */
   function getSortedFields($property) {
     usort($property['fields'], function($fieldOne, $fieldTwo) {
       $a = $fieldOne['attributes']['order'];
@@ -47,11 +47,11 @@ exec_php: |
   }
 
   /**
-  * Get all small fields.
-  *
-  * @param  array  $property
-  * @return array
-  */
+   * Get all small fields.
+   *
+   * @param  array  $property
+   * @return array
+   */
   function getSmallFields($property, $groups = 1) {
 
     $fields = array_filter(getSortedFields($property), function($field) use (&$count) {
@@ -69,11 +69,11 @@ exec_php: |
   }
 
   /**
-  * Get all large fields.
-  *
-  * @param  array  $property
-  * @return array
-  */
+   * Get all large fields.
+   *
+   * @param  array  $property
+   * @return array
+   */
   function getLargeFields($property) {
     $fields = array_filter(getSortedFields($property), function($field) {
       return $field['attributes']['type'] === 'long';
@@ -82,11 +82,11 @@ exec_php: |
   }
 
   /**
-  * Get a value to display from a field.
-  *
-  * @param  array  $field
-  * @return string
-  */
+   * Get a value to display from a field.
+   *
+   * @param  array  $field
+   * @return string
+   */
   function getFieldValue($field) {
     $value = $field['attributes']['value'];
     if ($field['attributes']['type'] === 'price') {
