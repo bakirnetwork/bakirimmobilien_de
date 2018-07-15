@@ -35,11 +35,11 @@ Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 ErrorDocument 404 /404.html
 
 # Redirect old CMS routes
-Redirect 301 /index.php/ueber-uns http://www.bakirimmobilien.de/ueber
-Redirect 301 /index.php/immobilienangebote http://bakirimmobilien.de/immobilienangebote
-Redirect 301 /index.php/unsere-leistungen http://www.bakirimmobilien.de/leistungen
-Redirect 301 /index.php/verwaltung http://www.bakirimmobilien.de/verwaltung
-Redirect 301 /index.php/wertermittlung http://www.bakirimmobilien.de/wertermittlung
-Redirect 301 /index.php/finanzierung http://www.bakirimmobilien.de/finanzierung
-Redirect 301 /index.php/impressum http://www.bakirimmobilien.de/impressum
-Redirect 301 /index.php/kontaktformular http://www.bakirimmobilien.de/kontakt
+Redirect 301 /index.php/ueber-uns            /ueber
+Redirect 301 /index.php/immobilienangebote   /immobilienangebote
+Redirect 301 /index.php/unsere-leistungen    /leistungen
+Redirect 301 /index.php/verwaltung           /verwaltung
+Redirect 301 /index.php/wertermittlung       /wertermittlung
+Redirect 301 /index.php/finanzierung         /finanzierung
+Redirect 301 /index.php/impressum            /impressum
+Redirect 301 /index.php/kontaktformular      /kontakt
