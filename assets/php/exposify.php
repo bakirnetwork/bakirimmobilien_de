@@ -3,7 +3,8 @@
 /**
  * Blueprint class to bundle API functionality.
  */
-abstract class ApiBlueprint {
+abstract class ApiBlueprint
+{
 	/**
 	 * API JSON result converted to an array.
 	 *
@@ -66,11 +67,20 @@ abstract class ApiBlueprint {
 	 * Request all properties.
 	 *
 	 * @param  string  $searchQuery
+	 * @param  array  $types
+	 * @param  array  $marketing
 	 * @return void
 	 */
-	public function requestAllProperties($searchQuery)
+	public function requestAllProperties($defaultTitle = 'Immobilienangebote', $searchQuery = '', $types = [], $marketing = [])
 	{
-		$url = $this->apiUrl . '?api_token=' . $this->apiKey . '&search=' . $searchQuery;
+		$url = $this->apiUrl . '?api_token=' . $this->apiKey;
+		$url = $url . '&search=' . urlencode($searchQuery);
+		$url = $url . '&types=' . urlencode(implode(',', $types));
+		$url = $url . '&marketing=' . urlencode(implode(',', $marketing));
+		$url = $url . '&origin=' . urlencode($this->getRequestOriginUrl());
+		$url = $url . '&template=simple';
+		$url = $url . '&title_properties_page=' . urlencode($defaultTitle);
+
 		$this->requestData($url);
 	}
 
@@ -83,7 +93,27 @@ abstract class ApiBlueprint {
 	public function requestSingleProperty($slug)
 	{
 		$url = $this->apiUrl . '/' . $slug . '?api_token=' . $this->apiKey;
+		$url = $url . '&origin=' . urlencode($this->getRequestOriginUrl($slug));
+		$url = $url . '&template=simple';
+
 		$this->requestData($url);
+	}
+
+	/**
+	 * We retrieve the origin of the request by splitting the REQUEST_URI at the
+	 * slug and using the first part to build an origin URL.
+	 *
+	 * @param  string  $slug
+	 * @return string
+	 */
+	protected function getRequestOriginUrl($slug = null)
+	{
+		if ($slug) {
+			$propertyPath = explode('/' . $slug, $_SERVER['REQUEST_URI'])[0];
+		} else {
+			$propertyPath = $_SERVER['REQUEST_URI'];
+		}
+		return (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $propertyPath;
 	}
 
 	/**
@@ -110,7 +140,8 @@ abstract class ApiBlueprint {
 /**
  * Class to allow access to the HTML API.
  */
-class HtmlHandler extends ApiBlueprint {
+class HtmlHandler extends ApiBlueprint
+{
 	/**
 	 * Construct the class.
 	 *
@@ -132,10 +163,10 @@ class HtmlHandler extends ApiBlueprint {
 	public function getContent()
 	{
 		if (!empty($this->error)) {
-			http_response_code($this->error['status'] ?: 404);
-			echo htmlspecialchars_decode($this->error['html']);
+			http_response_code($this->error['id'] ?: 404);
+			return htmlspecialchars_decode($this->error['attributes']['html']);
 		} else {
-			echo htmlspecialchars_decode($this->result['html']);
+			return htmlspecialchars_decode($this->result['attributes']['html']);
 		}
 	}
 
@@ -146,8 +177,8 @@ class HtmlHandler extends ApiBlueprint {
 	 */
 	public function getTitle()
 	{
-		if (isset($this->result['title'])) {
-			echo $this->result['title'];
+		if (isset($this->result['attributes']['title'])) {
+			return $this->result['attributes']['title'];
 		}
 	}
 
@@ -158,42 +189,8 @@ class HtmlHandler extends ApiBlueprint {
 	 */
 	public function getDescription()
 	{
-		if (isset($this->result['description'])) {
-			echo $this->result['description'];
-		}
-	}
-
-	/**
-	 * Output all head tags needed for the requested ressources.
-	 *
-	 * @return void
-	 */
-	public function getMeta()
-	{
-		if (isset($this->error['css']))  { $css = $this->error['css']; }
-		if (isset($this->result['css'])) { $css = $this->result['css']; }
-
-		if (isset($css) && is_array($css)) {
-			foreach ($css as $css_src) {
-				echo '<link rel="stylesheet" href="' . $css_src . '">';
-			}
-		}
-	}
-
-	/**
-	 * Output all footer tags needed for the requested ressources.
-	 *
-	 * @return void
-	 */
-	public function getScripts()
-	{
-		if (isset($this->error['js']))  { $js = $this->error['js']; }
-		if (isset($this->result['js'])) { $js = $this->result['js']; }
-
-		if (isset($js) && is_array($js)) {
-			foreach ($js as $js_src) {
-				echo '<script src="' . $js_src . '"></script>';
-			}
+		if (isset($this->result['attributes']['description'])) {
+			return $this->result['attributes']['description'];
 		}
 	}
 }
@@ -201,7 +198,8 @@ class HtmlHandler extends ApiBlueprint {
 /**
  * Class to handle the JSON API and allow access to the HTML API.
  */
-class Exposify extends ApiBlueprint {
+class Exposify extends ApiBlueprint
+{
 	/**
 	 * The HtmlHandler Instance.
 	 *
@@ -219,24 +217,6 @@ class Exposify extends ApiBlueprint {
 	{
 		$this->apiUrl = $apiBaseUrl . '/api/v1/json';
 		$this->apiKey = $apiKey;
-		$this->html   = new HtmlHandler($apiBaseUrl . '/api/v1/html', $apiKey);
-	}
-
-	/**
-	 * Request all properties.
-	 *
-	 * @param  string  $searchQuery  A search query.
-	 * @param  array  $fields  An array of field ids to append to the properties.
-	 * @return void
-	 */
-	public function requestAllProperties($searchQuery = '', $fields = [])
-	{
-		$url =
-			$this->apiUrl .
-			'?api_token=' . $this->apiKey .
-			'&search=' . $searchQuery .
-			'&fields=' . implode($fields, '+')
-		;
-		$this->requestData($url);
+		$this->html   = new HtmlHandler('https://sites.exposify.de', $apiKey);
 	}
 }

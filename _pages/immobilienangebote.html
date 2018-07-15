@@ -4,16 +4,7 @@ exec_php: |
   <?php
 
   require('../assets/php/exposify.php');
-
-  /**
-   * Get the current search query.
-   *
-   * @return string
-   */
-  function getSearchQuery()
-  {
-    return isset($_GET['search']) ? $_GET['search'] : '';
-  }
+  require('../assets/php/exposify_typemap.php');
 
   /**
    * Get the current category query.
@@ -26,22 +17,6 @@ exec_php: |
   }
 
   /**
-   * Filter Exposify properties by given categories.
-   *
-   * @param  array  $properties  Exposify properties array input
-   * @param  array  $categories  Categories to filter by
-   * @return array               Filtered properties array
-   */
-  function filterCategories($properties, $categories) {
-    foreach ($properties as $i => $property) {
-      if (!in_array($property['attributes']['category'], $categories)) {
-        unset($properties[$i]);
-      }
-    }
-    return $properties;
-  }
-
-  /**
    * Get the URL without parameters.
    *
    * @return string
@@ -51,60 +26,67 @@ exec_php: |
     return strtok($_SERVER["REQUEST_URI"], '?');
   }
 
+  /**
+   * Insert SRR Head End Resources if there are any.
+   *
+   * @param  Exposify  $exposify
+   * @return void
+   */
+  function insertSSRHead($exposify)
+  {
+    $apiResponse = $exposify->html->getResult();
+    if (isset($apiResponse['attributes']['endHead'])) {
+      echo $apiResponse['attributes']['endHead'];
+    }
+  }
+  /**
+   * Insert SRR Body End Resources if there are any.
+   *
+   * @param  Exposify  $exposify
+   * @return void
+   */
+  function insertSSRBody($exposify)
+  {
+    $apiResponse = $exposify->html->getResult();
+    if (isset($apiResponse['attributes']['endBody'])) {
+      echo $apiResponse['attributes']['endBody'];
+    }
+  }
+
   $exposify = new Exposify($immoapikey, 'https://app.exposify.de');
-  $exposify->requestAllProperties(getSearchQuery());
+  $category = getCategoryQuery();
+
+  if ($_GET['slug']) {
+
+    $exposify->html->requestSingleProperty($_GET['slug']);
+
+  } else {
+
+    $title = 'Immobilienangebote';
+    $types = [];
+    $marketing = [];
+
+    if (isset($typeMap[$category])) {
+      $title = $typeMap[$category]['title'];
+      $types = $typeMap[$category]['types'];
+      $marketing = $typeMap[$category]['marketing'];
+    }
+
+    $exposify->html->requestAllProperties($title, '', $types, $marketing);
+
+  }
 
   if (!empty($exposify->getError())) {
     http_response_code(500);
   }
 
-  $searchQuery = getSearchQuery();
-  $category    = getCategoryQuery();
-
-  $title = 'Alle Immobilienangebote';
-  $properties = $exposify->getResult();
-
-  $typeMap = [
-    'mieten' => [
-      'title' => 'Immobilienangebote zur Miete',
-      'types' => [
-        'Mietwohnung',
-        'Reihenendhaus zur Miete',
-        'Reihenmittelhaus zur Miete'
-      ]
-    ],
-    'kaufen' => [
-      'title' => 'Immobilienangebote zum Kauf',
-      'types' => [
-        'Reihenendhaus zum Kauf',
-        'Reihenmittelhaus zum Kauf',
-        'Eigentumswohnung',
-        'Einfamilienhaus'
-      ]
-    ],
-    'anlegen' => [
-      'title' => 'Immobilienangebote zum Anlegen',
-      'types' => [
-        'Zinshaus / Renditeobjekt',
-        'Mehrfamilienhaus'
-      ]
-    ],
-    'gewerbe' => [
-      'title' => 'Immobilienangebote für Gewerbe',
-      'types' => [
-        'Gewerbeimmobilie zum Kauf',
-        'Gewerbeimmobilie zur Miete'
-      ]
-    ],
-  ];
-
-  if (isset($typeMap[$category])) {
-    $title = $typeMap[$category]['title'];
-    $properties = filterCategories($properties, $typeMap[$category]['types']);
-  }
+  $title = $exposify->html->getTitle();
+  $xpfy = $exposify->html->getContent();
 
   ?>
 title: <?php echo $title ?>
+head_insert: <?php insertSSRHead($exposify) ?>
+body_insert: <?php insertSSRBody($exposify) ?>
 permalink: /immobilienangebote/index.php
 canonical: /immobilienangebote/
 menu_link: /immobilienangebote/
@@ -113,54 +95,30 @@ menu_link: /immobilienangebote/
 <main>
 	<header class="page-header">
 		<div class="row">
-			<div class="medium-7 column">
-				<h1 style="margin-top: 0.2em;"><?php echo $title ?></h1>
+			<div class="medium-12 column">
+				<h1 id="xpfy-title" style="margin-top: 0.2em;"><?php echo $title ?></h1>
 			</div>
-			<form class="medium-5 column" method="get">
-				<div class="input-bar">
-					<input class="input-bar__input" name="search" type="text" value="<?php echo($searchQuery); ?>" placeholder="Immobilie suchen (z.B. PLZ, Ort)">
-					<input name="cat" type="hidden" value="<?php echo $category ?>">
-					<button class="input-bar__button" type="submit">Suchen</button>
-				</div>
-			</form>
 		</div>
 	</header>
 
-	<div class="offers-page-filter">
+	<div class="page-sub-header">
 		<div class="row">
 			<div class="column">
-				<a href="/immobilienangebote/">Alle</a>
-				<a href="?cat=mieten">Mieten</a>
-				<a href="?cat=kaufen">Kaufen</a>
-				<a href="?cat=anlegen">Anlegen</a>
-				<a href="?cat=gewerbe">Gewerbe</a>
+				<a href="/immobilienangebote/">Alle Angebote</a>
+				<a href="/immobilienangebote/?cat=kaufen">Kaufen</a>
+				<a href="/immobilienangebote/?cat=mieten">Mieten</a>
+				<a href="/immobilienangebote/?cat=gewerbe-kaufen">Kaufen für Gewerbe</a>
+				<a href="/immobilienangebote/?cat=gewerbe-mieten">Mieten für Gewerbe</a>
+				<a href="/immobilienangebote/?cat=grundstuecke">Grundstücke</a>
 			</div>
 		</div>
 	</div>
 
 	<div class="page-content">
 		<div class="row">
-
-			<?php if (!$properties): ?>
-				<div class="column" style="text-align: center; margin-top: 1em;">
-					Leider konnten keine Immobilien gefunden werden.
-					<a href="<?php echo getBasePath() ?>">
-						← <span>Zurück zur Übersicht</span>
-					</a>
-				</div>
-			<?php endif; ?>
-
-			<ul class="offers">
-				<?php foreach ($properties as $property): ?>
-					<li class="medium-6 column">
-						<a class="box offers-property" href="<?php echo($property['attributes']['slug']); ?>">
-							<img class="offers-property-img" src="<?php echo($property['attributes']['thumbnail']['links']['thumbnail']); ?>" alt="<?php echo($property['attributes']['title']); ?>">
-							<h2 class="offers-property-title"><?php echo($property['attributes']['title']); ?></h2>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
-
+			<div class="column">
+				<?php echo $xpfy ?>
+			</div>
 		</div>
 	</div>
 </main>

@@ -1,4 +1,3 @@
-<?php $immoapiurl = '{{ site.data.api.immoapiurl | site.data.settings.immoapiurl }}/'; ?>
 <?php $immoapikey = '{{ site.data.api.immoapikey | site.data.settings.immoapikey }}'; ?>
 {{ page.exec_php }}
 
@@ -10,6 +9,8 @@
 		<title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
 		<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		{{ page.head_insert }}
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.8/typicons.min.css">
 		<link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
@@ -35,8 +36,8 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-2.1.3.min.js"><\/script>')</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js"></script>
 		<script src="/assets/js/main.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/1.10.2/simple-lightbox.min.js"></script>
+
+		{{ page.body_insert }}
 	</body>
 </html>

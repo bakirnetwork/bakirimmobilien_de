@@ -15,7 +15,7 @@
 
 	# Rewrite property listings
 	RewriteCond %{THE_REQUEST} ^GET\s/immobilienangebote\/[^?\s]+
-	RewriteRule ^immobilienangebote/(.*)$ immobilienangebote/angebot.php?slug=$1 [QSA]
+	RewriteRule ^immobilienangebote/(.*)$ immobilienangebote/index.php?slug=$1 [QSA]
 
 	# Redirect old OnOffice interface
 	RewriteRule ^assets/php/onoffice(.*)$ /immobilienangebote? [R=301,L]

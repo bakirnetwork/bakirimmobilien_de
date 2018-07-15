@@ -15,5 +15,4 @@ menu:
 
 # Please store the actual api data in `/_data/api.yml`.
 # This is to protect the API Credentials.
-immoapiurl: http://exposify-api-url.dev
 immoapikey: ExposifyApiKey
