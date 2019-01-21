@@ -9,8 +9,8 @@ module.exports = function(grunt) {
 		},
 
 		exec: {
-			jekyllServe: { cmd: 'bundle exec jekyll s' },
-			jekyllBuild: { cmd: 'bundle exec jekyll b' }
+			jekyllServe: { cmd: 'LC_ALL=en_US.UTF-8 bundle exec jekyll s' },
+			jekyllBuild: { cmd: 'LC_ALL=en_US.UTF-8 bundle exec jekyll b' }
 		},
 
 		sshconfig: {
